@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Giri/Scene/MainMenu.unity
+  - enabled: 0
+    path: Assets/Giri - Old/Scene/MainMenu.unity
     guid: d290763afb045254aa8f56db930b1cb8
-  - enabled: 1
-    path: Assets/Giri/Scene/SingleplayerCharacter.unity
+  - enabled: 0
+    path: Assets/Giri - Old/Scene/SingleplayerCharacter.unity
     guid: 25d226b2398e09249a1786418d8e64ef
-  - enabled: 1
-    path: Assets/Giri/Scene/MultiplayerCharacter.unity
+  - enabled: 0
+    path: Assets/Giri - Old/Scene/MultiplayerCharacter.unity
     guid: fe4117ea18f6d2c49b70ecee653a59aa
+  - enabled: 1
+    path: Assets/Giri/Scenes/GameMainMenu.unity
+    guid: 1130259a98af8004db49d306bd4b6e92
+  - enabled: 1
+    path: Assets/Giri/Scenes/MultiplayerLobby.unity
+    guid: 7a0206d2e6697b34fb3ae2222b77283e
   m_configObjects: {}
