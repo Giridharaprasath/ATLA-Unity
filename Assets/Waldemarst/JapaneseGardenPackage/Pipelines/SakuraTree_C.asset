@@ -1,0 +1,2820 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c408808996a8a4812a415c43bab9974b, type: 3}
+  m_Name: SakuraTree_C
+  m_EditorClassIdentifier: 
+  _serializedPipeline:
+    structureGenerators:
+    - {fileID: 114738616148734606}
+    lSystemElements: []
+    lengthTransforms: []
+    branchBenders:
+    - {fileID: 114346113120817904}
+    girthTransforms:
+    - {fileID: 114356615534484912}
+    sparsingTransforms:
+    - {fileID: 114052950906004990}
+    branchMeshGenerators:
+    - {fileID: 114372266866380872}
+    trunkMeshGenerators:
+    - {fileID: 114157754647120372}
+    barkMappers:
+    - {fileID: 114230550197967416}
+    sproutMappers:
+    - {fileID: 114938166962849024}
+    sproutGenerators:
+    - {fileID: 114838318049940912}
+    sproutMeshGenerators:
+    - {fileID: 114801116908072712}
+    sproutLabs: []
+    windEffects:
+    - {fileID: 114970149601894878}
+    positioners:
+    - {fileID: 114986551106722632}
+  _sproutGroups:
+    _sproutGroups:
+    - id: 1
+      colorIndex: 0
+  treeFactoryPreferences:
+    factoryScale: 0.4
+    debugShowDrawSprouts: 0
+    debugShowDrawBranches: 0
+    canvasOffset: {x: 9, y: 199}
+    previewMode: 0
+    preferredShader: 1
+    customBranchShader: {fileID: 0}
+    customSproutShader: {fileID: 0}
+    prefabCreateAtlas: 1
+    atlasTextureSize: 3
+    billboardTextureSize: 2
+    billboardImageCount: 8
+    prefabStrictLowPoly: 0
+    prefabUseLODGroups: 1
+    prefabRepositionEnabled: 1
+    prefabCloneCustomMaterialEnabled: 1
+    prefabCopyCustomMaterialBarkTexturesEnabled: 1
+    appendableComponents: []
+  isCatalogItem: 0
+  undoControl:
+    undoCount: 0
+    canvasUndoCount: 0
+  seed: -1
+  randomState:
+    s0: 0
+    s1: 0
+    s2: 0
+    s3: 0
+--- !u!114 &114052950906004990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19121274faf2461f94ae70876de4337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: -1909040528
+  isActive: 1
+  id: 4
+  srcElementId: 2
+  sinkElementId: 3
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 2
+  sinkElementClassType: 8
+  nodePosition: {x: -108, y: -265}
+  sparseLevels:
+  - reorderMode: 0
+    lengthSparsingMode: 1
+    twirlSparsingMode: 0
+    lengthSparsingValue: 0.724
+    twirlSparsingValue: 0
+    level: 0
+  selectedSparseLevelIndex: 0
+--- !u!114 &114157754647120372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4769aef02bd642eeb50b021b91d49ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 0
+  srcElementId: 1
+  sinkElementId: 7
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 3
+  sinkElementClassType: 11
+  nodePosition: {x: -16.5, y: 1.5}
+  minSpread: 0.24472731
+  maxSpread: 0.38222724
+  minDisplacementPoints: 5
+  maxDisplacementPoints: 6
+  minDisplacementAngleVariance: 0.1
+  maxDisplacementAngleVariance: 0.2638761
+  minDisplacementTwirl: 0.07768875
+  maxDisplacementTwirl: 0.21364406
+  minDisplacementScaleAtBase: 1
+  maxDisplacementScaleAtBase: 1.1829499
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  strength: 0.3
+--- !u!114 &114230550197967416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770e367948b91433083364e8aedb2369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 5
+  srcElementId: 7
+  sinkElementId: 10
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 11
+  sinkElementClassType: 12
+  nodePosition: {x: 13, y: 186}
+  useCustomMaterial: 0
+  customMaterial: {fileID: 2100000, guid: 491b5957863b84d8b886c1af5cd6f718, type: 2}
+  mainTexture: {fileID: 2800000, guid: ec3d07ffebd044082b839af514ca2430, type: 3}
+  normalTexture: {fileID: 0}
+  mappingXDisplacement: 0
+  mappingYDisplacement: 0
+  isGirthSensitive: 0
+  applyMappingOffsetFromParent: 0
+--- !u!114 &114346113120817904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac74e6fb3f1f04991839eaf6b28d74aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: -1909040528
+  isActive: 1
+  id: 3
+  srcElementId: 4
+  sinkElementId: 1
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 5
+  sinkElementClassType: 3
+  nodePosition: {x: 14, y: -185.5}
+  applyJointSmoothing: 1
+  smoothJointStrength: 0.75
+  applyDirectionalBending: 1
+  forceAtTips: 0.46
+  forceAtTrunk: -0.17
+  direction: {x: 0, y: -1, z: 0}
+  hierarchyDistributionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  applyBranchNoise: 1
+  noiseAtTop: 0.6
+  noiseAtBase: 0.3
+  noiseScaleAtTop: 0.7
+  noiseScaleAtBase: 0.4
+--- !u!114 &114356615534484912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c7ca66c238743c882e0f8b9b24644b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 2
+  srcElementId: 6
+  sinkElementId: 4
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 10
+  sinkElementClassType: 5
+  nodePosition: {x: 13, y: -354.5}
+  girthAtTop: 0.02
+  girthAtBase: 1.26
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  hierarchyScalingEnabled: 0
+  minHierarchyScaling: 1
+  maxHierarchyScaling: 1
+--- !u!114 &114372266866380872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71b3b56710c5470795bb8565a348b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 1
+  srcElementId: 3
+  sinkElementId: 0
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 8
+  sinkElementClassType: 15
+  nodePosition: {x: -120, y: -94.5}
+  minPolygonSides: 3
+  maxPolygonSides: 6
+  segmentAngle: 0
+  useHardNormals: 0
+  minBranchCurveResolution: 0.25
+  maxBranchCurveResolution: 0.75
+--- !u!114 &114738616148734606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cce6b1921274ea9a741a82df45b267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: -1909040528
+  isActive: 1
+  id: 12
+  srcElementId: -1
+  sinkElementId: 6
+  index: -1
+  srcElementIndex: -1
+  sinkElementIndex: 0
+  srcElementClassType: 0
+  sinkElementClassType: 10
+  nodePosition: {x: -17.5, y: -527.5}
+  canvasOffset: {x: 15, y: -17}
+  flatStructureLevels:
+  - id: 1
+    parentId: 0
+    sharingGroupId: 0
+    sharingNextId: 0
+    enabled: 1
+    isSprout: 0
+    isLocked: 0
+    sproutGroupId: 0
+    probability: 1
+    sharedProbability: 0.5
+    distribution: 0
+    distributionCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    childrenPerNode: 1
+    minFrequency: 3
+    maxFrequency: 4
+    randomTwirlOffsetEnabled: 1
+    twirlOffset: 0
+    twirl: 0.2
+    parallelAlignAtTop: 0.3
+    parallelAlignAtBase: 0.251
+    parallelAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gravityAlignAtTop: 0.38
+    gravityAlignAtBase: 0.19
+    gravityAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    horizontalAlignAtTop: 0.4
+    horizontalAlignAtBase: 0.88
+    horizontalAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    lengthAtTop: 15.4
+    lengthAtBase: 9
+    lengthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minGirthScale: 0.5279736
+    maxGirthScale: 0.8543749
+    actionRangeEnabled: 1
+    minActionRange: 0.3
+    maxActionRange: 1
+    radius: 0
+    fromBranchCenter: 0
+    nodePosition: {x: -60, y: 16}
+  - id: 2
+    parentId: 1
+    sharingGroupId: 0
+    sharingNextId: 0
+    enabled: 1
+    isSprout: 0
+    isLocked: 0
+    sproutGroupId: 0
+    probability: 1
+    sharedProbability: 0.5
+    distribution: 0
+    distributionCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    childrenPerNode: 1
+    minFrequency: 5
+    maxFrequency: 7
+    randomTwirlOffsetEnabled: 1
+    twirlOffset: 0
+    twirl: 0.17
+    parallelAlignAtTop: 0.16
+    parallelAlignAtBase: 0.12
+    parallelAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gravityAlignAtTop: 0.31
+    gravityAlignAtBase: 0.2
+    gravityAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    horizontalAlignAtTop: 0.27
+    horizontalAlignAtBase: -0.13
+    horizontalAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    lengthAtTop: 6
+    lengthAtBase: 7
+    lengthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minGirthScale: 0.48421854
+    maxGirthScale: 0.5793628
+    actionRangeEnabled: 0
+    minActionRange: 0
+    maxActionRange: 1
+    radius: 0
+    fromBranchCenter: 0
+    nodePosition: {x: 9, y: -64}
+  flatStructures:
+  - id: 14955
+    generatorId: 0
+    mainGeneratorId: 0
+    parentStructureId: -1
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 267452099
+      s1: 1236931109
+      s2: 291796909
+      s3: -1443580695
+    positionOffset: {x: -0, y: 0, z: -0}
+    branch:
+      id: 14955
+      direction: {x: 0, y: 0.93211406, z: -0.00000011516297}
+      _position: 1
+      positionFromBranch: {x: -0, y: 0, z: -0}
+      positionFromRoot: {x: -0, y: 0, z: -0}
+      _lengthProcessed: 1
+      _maxLength: 16.27121
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 1
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0, y: 7.859458, z: -0.0000009369203}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 1
+          _position: {x: 0, y: 16.27121, z: -0.0000020103128}
+          _handle1: {x: 1.7770222, y: -5.8317294, z: -0.2528089}
+          _handle2: {x: -1.6818748, y: 5.51948, z: 0.23927271}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.3
+        noiseFactorAtLastNode: 0.4
+        noiseScaleAtFirstNode: 0.4
+        noiseScaleAtLastNode: 0.5
+        noiseLengthOffset: 2.9244754
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: -1
+      isTuned: 0
+      isTrunk: 1
+      helperStructureLevelId: 0
+    structureId: -1
+  - id: 14956
+    generatorId: 1
+    mainGeneratorId: 1
+    parentStructureId: 14955
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1977383575
+      s1: -2038678728
+      s2: 1979355092
+      s3: -1888572435
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14956
+      direction: {x: -0.5401519, y: 0.7729811, z: 0.076845095}
+      _position: 1
+      positionFromBranch: {x: 0, y: 16.27121, z: -0.0000020103128}
+      positionFromRoot: {x: 0, y: 16.27121, z: -0.0000020103128}
+      _lengthProcessed: 1
+      _maxLength: 15.4
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5375837
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 1
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 1.7770219, y: -5.8317294, z: -0.2528089}
+          _handle2: {x: -1.6818745, y: 5.51948, z: 0.23927271}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 1
+          _position: {x: -8.791927, y: 12.581634, z: 1.2507898}
+          _handle1: {x: 1.7932589, y: -5.4708433, z: -0.85068417}
+          _handle2: {x: -0.69589204, y: 2.1230156, z: 0.3301165}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.4
+        noiseFactorAtLastNode: 0.5
+        noiseScaleAtFirstNode: 0.5
+        noiseScaleAtLastNode: 0.6
+        noiseLengthOffset: 19.313492
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14955
+      isTuned: 0
+      isTrunk: 1
+      helperStructureLevelId: 1
+    structureId: -1
+  - id: 14959
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14959
+      direction: {x: -0.2386877, y: 0.5883685, z: 0.5093659}
+      _position: 1
+      positionFromBranch: {x: -8.791927, y: 12.581634, z: 1.2507898}
+      positionFromRoot: {x: -8.791927, y: 28.852844, z: 1.2507877}
+      _lengthProcessed: 1
+      _maxLength: 6
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5106537
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 1
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 1.7932591, y: -5.470844, z: -0.8506843}
+          _handle2: {x: -0.69589216, y: 2.1230156, z: 0.33011654}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -1.7593596, y: 4.336846, z: 3.7545204}
+          _handle1: {x: 0.21851248, y: -1.1734363, z: -0.46631148}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.5
+        noiseFactorAtLastNode: 0.6
+        noiseScaleAtFirstNode: 0.6
+        noiseScaleAtLastNode: 0.7
+        noiseLengthOffset: 34.89013
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 1
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14960
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14960
+      direction: {x: 0.17211369, y: 0.91861784, z: -0.23483473}
+      _position: 0.8571429
+      positionFromBranch: {x: -7.8974004, y: 10.571243, z: 0.9439456}
+      positionFromRoot: {x: -7.8974004, y: 26.842453, z: 0.94394356}
+      _lengthProcessed: 1
+      _maxLength: 6.142857
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5234461
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.52863485, y: 1.4746715, z: -0.7212781}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 1.0971466, y: 5.8557715, z: -1.4969647}
+          _handle1: {x: -0.13626564, y: -1.3772012, z: 0.18592304}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.48571432
+        noiseFactorAtLastNode: 0.5857143
+        noiseScaleAtFirstNode: 0.5857143
+        noiseScaleAtLastNode: 0.6857143
+        noiseLengthOffset: 32.664894
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14961
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14961
+      direction: {x: -0.5657027, y: 0.39252427, z: 0.044291593}
+      _position: 0.71428573
+      positionFromBranch: {x: -6.6374373, y: 8.758435, z: 0.68597895}
+      positionFromRoot: {x: -6.6374373, y: 25.029644, z: 0.6859769}
+      _lengthProcessed: 1
+      _maxLength: 6.285714
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5375837
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -1.7779229, y: -0.12169794, z: 0.13920215}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -5.153634, y: 3.5759535, z: 0.40350288}
+          _handle1: {x: 0.64008135, y: -1.109162, z: -0.05011506}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.4714286
+        noiseFactorAtLastNode: 0.5714286
+        noiseScaleAtFirstNode: 0.5714286
+        noiseScaleAtLastNode: 0.67142856
+        noiseLengthOffset: 30.439661
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14962
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14962
+      direction: {x: 0.22835743, y: 0.90247977, z: 0.22488055}
+      _position: 0.5714286
+      positionFromBranch: {x: -5.151444, y: 7.115772, z: 0.4819411}
+      positionFromRoot: {x: -5.151444, y: 23.386982, z: 0.4819391}
+      _lengthProcessed: 1
+      _maxLength: 6.428571
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5292461
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.7340059, y: 1.536079, z: 0.72283024}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 1.5328526, y: 6.0579085, z: 1.5095141}
+          _handle1: {x: -0.19038028, y: -1.4325349, z: -0.18748166}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.45714286
+        noiseFactorAtLastNode: 0.55714285
+        noiseScaleAtFirstNode: 0.55714285
+        noiseScaleAtLastNode: 0.6571429
+        noiseLengthOffset: 28.214426
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14963
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14963
+      direction: {x: -0.33042863, y: 0.5234737, z: -0.46949998}
+      _position: 0.42857146
+      positionFromBranch: {x: -3.5922039, y: 5.5360446, z: 0.32411608}
+      positionFromRoot: {x: -3.5922039, y: 21.807255, z: 0.32411408}
+      _lengthProcessed: 1
+      _maxLength: 6.5714283
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5375837
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -1.085694, y: 0.3534997, z: -1.5426427}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -2.7947898, y: 4.4275794, z: -3.9710658}
+          _handle1: {x: 0.34711286, y: -1.2451625, z: 0.49320635}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.44285715
+        noiseFactorAtLastNode: 0.54285717
+        noiseScaleAtFirstNode: 0.54285717
+        noiseScaleAtLastNode: 0.64285713
+        noiseLengthOffset: 25.989193
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14964
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14964
+      direction: {x: -0.036404897, y: 0.62171733, z: 0.55076253}
+      _position: 0.2857143
+      positionFromBranch: {x: -2.1109273, y: 3.8813217, z: 0.19944096}
+      positionFromRoot: {x: -2.1109273, y: 20.15253, z: 0.19943894}
+      _lengthProcessed: 1
+      _maxLength: 6.714286
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.52730834
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -0.122216426, y: 0.7169286, z: 1.8489885}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -0.29400766, y: 5.0210185, z: 4.447984}
+          _handle1: {x: 0.03651575, y: -1.3339818, z: -0.5524396}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.42857143
+        noiseFactorAtLastNode: 0.5285714
+        noiseScaleAtFirstNode: 0.5285714
+        noiseScaleAtLastNode: 0.6285714
+        noiseLengthOffset: 23.76396
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14965
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14956
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 868445280
+      s1: -173742945
+      s2: 331745210
+      s3: 1678823428
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14965
+      direction: {x: 0.07598299, y: 0.8178418, z: -0.4249257}
+      _position: 0.14285715
+      positionFromBranch: {x: -0.8652416, y: 2.043787, z: 0.09473945}
+      positionFromRoot: {x: -0.8652416, y: 18.314997, z: 0.09473744}
+      _lengthProcessed: 1
+      _maxLength: 6.857143
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5375837
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.2605131, y: 1.4413251, z: -1.4568882}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 0.56341136, y: 6.06427, z: -3.15081}
+          _handle1: {x: -0.0699757, y: -1.4786682, z: 0.39133063}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.41428572
+        noiseFactorAtLastNode: 0.51428574
+        noiseScaleAtFirstNode: 0.51428574
+        noiseScaleAtLastNode: 0.6142857
+        noiseLengthOffset: 21.538725
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14956
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14957
+    generatorId: 1
+    mainGeneratorId: 1
+    parentStructureId: 14955
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1977383575
+      s1: -2038678728
+      s2: 1979355092
+      s3: -1888572435
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14957
+      direction: {x: 0.47385907, y: 0.72616667, z: 0.25092906}
+      _position: 0.7586667
+      positionFromBranch: {x: 0.74624157, y: 12.397306, z: -0.10616624}
+      positionFromRoot: {x: 0.74624157, y: 12.397306, z: -0.10616624}
+      _lengthProcessed: 1
+      _maxLength: 13.266666
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.541841
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 3.143265, y: 2.5740774, z: 1.6644962}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 1
+          _position: {x: 6.964318, y: 10.672489, z: 3.6879103}
+          _handle1: {x: -1.7511023, y: -4.6834326, z: -0.21560588}
+          _handle2: {x: 0.78979486, y: 2.1123557, z: 0.09724413}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.37586668
+        noiseFactorAtLastNode: 0.47586668
+        noiseScaleAtFirstNode: 0.47586668
+        noiseScaleAtLastNode: 0.57586664
+        noiseLengthOffset: 15.358277
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14955
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 1
+    structureId: -1
+  - id: 14966
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14966
+      direction: {x: 0.41058353, y: 0.6314011, z: -0.33908713}
+      _position: 1
+      positionFromBranch: {x: 6.964318, y: 10.672489, z: 3.6879103}
+      positionFromRoot: {x: 7.7105594, y: 23.069796, z: 3.5817442}
+      _lengthProcessed: 1
+      _maxLength: 6
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.507408
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 1
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: -1.7511023, y: -4.6834326, z: -0.21560588}
+          _handle2: {x: 0.78979486, y: 2.1123557, z: 0.09724413}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 2.9825554, y: 4.5866156, z: -2.4631925}
+          _handle1: {x: -0.37043342, y: -1.2044579, z: 0.30592856}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.47586668
+        noiseFactorAtLastNode: 0.5758667
+        noiseScaleAtFirstNode: 0.57586664
+        noiseScaleAtLastNode: 0.67586666
+        noiseLengthOffset: 28.857449
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14967
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14967
+      direction: {x: -0.23763973, y: 0.90177107, z: 0.21225666}
+      _position: 0.8571429
+      positionFromBranch: {x: 6.254282, y: 8.887766, z: 3.523687}
+      positionFromRoot: {x: 7.0005236, y: 21.285072, z: 3.4175205}
+      _lengthProcessed: 1
+      _maxLength: 6.142857
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.49566334
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -0.72989345, y: 1.4364023, z: 0.65193117}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -1.526322, y: 5.7919316, z: 1.3632905}
+          _handle1: {x: 0.18956918, y: -1.3692721, z: -0.16932067}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.461581
+        noiseFactorAtLastNode: 0.561581
+        noiseScaleAtFirstNode: 0.56158096
+        noiseScaleAtLastNode: 0.661581
+        noiseLengthOffset: 26.928997
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14968
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14968
+      direction: {x: 0.5447781, y: 0.31245178, z: 0.14376917}
+      _position: 0.71428573
+      positionFromBranch: {x: 5.4661846, y: 7.1582856, z: 3.2013378}
+      positionFromRoot: {x: 6.212426, y: 19.555592, z: 3.0951715}
+      _lengthProcessed: 1
+      _maxLength: 6.285714
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.51082706
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 1.7121598, y: -0.35487762, z: 0.45184597}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 5.31507, y: 3.0484028, z: 1.4026687}
+          _handle1: {x: -0.66013163, y: -1.0436401, z: -0.17421144}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.44729525
+        noiseFactorAtLastNode: 0.5472953
+        noiseScaleAtFirstNode: 0.5472952
+        noiseScaleAtLastNode: 0.64729524
+        noiseLengthOffset: 25.000544
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14969
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14969
+      direction: {x: -0.073761225, y: 0.95241344, z: -0.2192283}
+      _position: 0.5714286
+      positionFromBranch: {x: 4.5881386, y: 5.507187, z: 2.7335188}
+      positionFromRoot: {x: 5.33438, y: 17.904493, z: 2.6273527}
+      _lengthProcessed: 1
+      _maxLength: 6.428571
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.53831446
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -0.23708966, y: 1.7304369, z: -0.70466244}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -0.48380774, y: 6.2469816, z: -1.4379419}
+          _handle1: {x: 0.06008893, y: -1.4560181, z: 0.1785924}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.43300954
+        noiseFactorAtLastNode: 0.5330095
+        noiseScaleAtFirstNode: 0.5330095
+        noiseScaleAtLastNode: 0.6330095
+        noiseLengthOffset: 23.07209
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14970
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14970
+      direction: {x: 0.07519843, y: 0.38844395, z: 0.58708775}
+      _position: 0.42857146
+      positionFromBranch: {x: 3.6103666, y: 3.9535995, z: 2.1450431}
+      positionFromRoot: {x: 4.3566084, y: 16.350906, z: 2.038877}
+      _lengthProcessed: 1
+      _maxLength: 6.5714283
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5041214
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.24708058, y: -0.063596815, z: 1.9290026}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 0.6980014, y: 3.6055863, z: 5.4494233}
+          _handle1: {x: -0.086691774, y: -1.1430709, z: -0.6768184}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.41872385
+        noiseFactorAtLastNode: 0.51872385
+        noiseScaleAtFirstNode: 0.51872385
+        noiseScaleAtLastNode: 0.6187238
+        noiseLengthOffset: 21.143637
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14971
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14971
+      direction: {x: 0.2869367, y: 0.6871398, z: -0.4472302}
+      _position: 0.2857143
+      positionFromBranch: {x: 2.5236418, y: 2.512623, z: 1.467684}
+      positionFromRoot: {x: 3.2698834, y: 14.909929, z: 1.3615178}
+      _lengthProcessed: 1
+      _maxLength: 6.714286
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.541841
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.96328753, y: 0.98970526, z: -1.5014157}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 2.2179606, y: 5.3114467, z: -3.4569955}
+          _handle1: {x: -0.27547073, y: -1.3700533, z: 0.42935887}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.4044381
+        noiseFactorAtLastNode: 0.50443816
+        noiseScaleAtFirstNode: 0.5044381
+        noiseScaleAtLastNode: 0.6044381
+        noiseLengthOffset: 19.215183
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14972
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14957
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: 825702704
+      s1: 1751464291
+      s2: 1058045019
+      s3: -945065187
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14972
+      direction: {x: -0.25828853, y: 0.75404024, z: 0.4215344}
+      _position: 0.14285715
+      positionFromBranch: {x: 1.3206273, y: 1.1941723, z: 0.73914135}
+      positionFromRoot: {x: 2.0668688, y: 13.591478, z: 0.6329751}
+      _lengthProcessed: 1
+      _maxLength: 6.857143
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.541841
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -0.8855605, y: 1.2817985, z: 1.4452606}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -1.9643016, y: 5.734526, z: 3.2057972}
+          _handle1: {x: 0.24396627, y: -1.4377139, z: -0.39816004}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.3901524
+        noiseFactorAtLastNode: 0.4901524
+        noiseScaleAtFirstNode: 0.4901524
+        noiseScaleAtLastNode: 0.5901524
+        noiseLengthOffset: 17.28673
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14957
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14958
+    generatorId: 1
+    mainGeneratorId: 1
+    parentStructureId: 14955
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1977383575
+      s1: -2038678728
+      s2: 1979355092
+      s3: -1888572435
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14958
+      direction: {x: -0.2772559, y: 0.6092689, z: -0.5660295}
+      _position: 0.5173334
+      positionFromBranch: {x: 0.62203354, y: 8.449612, z: -0.08849518}
+      positionFromRoot: {x: 0.62203354, y: 8.449612, z: -0.08849518}
+      _lengthProcessed: 1
+      _maxLength: 11.133333
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5721612
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -1.5433913, y: 1.7423083, z: -3.150898}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 1
+          _position: {x: -3.5212178, y: 7.737864, z: -7.1887136}
+          _handle1: {x: 1.4402317, y: -3.7261162, z: 1.3050172}
+          _handle2: {x: -0.77384424, y: 2.0020623, z: -0.70119286}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.35173336
+        noiseFactorAtLastNode: 0.45173335
+        noiseScaleAtFirstNode: 0.45173335
+        noiseScaleAtLastNode: 0.5517333
+        noiseLengthOffset: 11.403061
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14955
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 1
+    structureId: -1
+  - id: 14973
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14958
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1999905609
+      s1: 322224924
+      s2: 1190307694
+      s3: -225679717
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14973
+      direction: {x: -0.55072474, y: 0.60168403, z: 0.04533925}
+      _position: 1
+      positionFromBranch: {x: -3.5212178, y: 7.737864, z: -7.1887136}
+      positionFromRoot: {x: -2.8991842, y: 16.187475, z: -7.277209}
+      _lengthProcessed: 1
+      _maxLength: 6
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.5174727
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 1
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 1.4402313, y: -3.726116, z: 1.3050169}
+          _handle2: {x: -0.7738442, y: 2.0020623, z: -0.7011927}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -4.0448294, y: 4.4191027, z: 0.3329967}
+          _handle1: {x: 0.5023678, y: -1.1836525, z: -0.041358188}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.45173335
+        noiseFactorAtLastNode: 0.5517334
+        noiseScaleAtFirstNode: 0.5517333
+        noiseScaleAtLastNode: 0.65173334
+        noiseLengthOffset: 22.786232
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14958
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14974
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14958
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1999905609
+      s1: 322224924
+      s2: 1190307694
+      s3: -225679717
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14974
+      direction: {x: 0.2970252, y: 0.9106628, z: -0.08427921}
+      _position: 0.8
+      positionFromBranch: {x: -2.7890022, y: 5.7763305, z: -6.3018894}
+      positionFromRoot: {x: -2.1669686, y: 14.225943, z: -6.3903847}
+      _lengthProcessed: 1
+      _maxLength: 6.2
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.52297336
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 0.9207781, y: 1.515448, z: -0.26126552}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 1.9151381, y: 5.8717074, z: -0.5434096}
+          _handle1: {x: -0.23786017, y: -1.3852261, z: 0.06749147}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.43173337
+        noiseFactorAtLastNode: 0.5317334
+        noiseScaleAtFirstNode: 0.53173333
+        noiseScaleAtLastNode: 0.63173336
+        noiseLengthOffset: 20.509598
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14958
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14975
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14958
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1999905609
+      s1: 322224924
+      s2: 1190307694
+      s3: -225679717
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14975
+      direction: {x: -0.35556978, y: 0.14735216, z: -0.40100372}
+      _position: 0.6
+      positionFromBranch: {x: -2.1332676, y: 3.9841814, z: -5.0658755}
+      positionFromRoot: {x: -1.511234, y: 12.433793, z: -5.154371}
+      _lengthProcessed: 1
+      _maxLength: 6.4
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.54014397
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -1.1378232, y: -0.82524025, z: -1.2832118}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -4.0941443, y: 1.69666, z: -4.6172857}
+          _handle1: {x: 0.5084927, y: -0.88784516, z: 0.57346684}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.41173336
+        noiseFactorAtLastNode: 0.51173335
+        noiseScaleAtFirstNode: 0.51173335
+        noiseScaleAtLastNode: 0.6117333
+        noiseLengthOffset: 18.232964
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14958
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14976
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14958
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1999905609
+      s1: 322224924
+      s2: 1190307694
+      s3: -225679717
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14976
+      direction: {x: -0.099360086, y: 0.96891993, z: 0.16373485}
+      _position: 0.4
+      positionFromBranch: {x: -1.5001578, y: 2.4230163, z: -3.5378947}
+      positionFromRoot: {x: -0.8781243, y: 10.872628, z: -3.62639}
+      _lengthProcessed: 1
+      _maxLength: 6.6
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.49413878
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: -0.3278883, y: 1.8960919, z: 0.5403251}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: -0.6639648, y: 6.4747205, z: 1.0941434}
+          _handle1: {x: 0.08246443, y: -1.5024405, z: -0.13589261}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.39173335
+        noiseFactorAtLastNode: 0.49173334
+        noiseScaleAtFirstNode: 0.49173334
+        noiseScaleAtLastNode: 0.59173334
+        noiseLengthOffset: 15.956329
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14958
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  - id: 14977
+    generatorId: 2
+    mainGeneratorId: 2
+    parentStructureId: 14958
+    isSharedGenerator: 0
+    sproutChildIndex: -1
+    isTuned: 0
+    randomState:
+      s0: -1999905609
+      s1: 322224924
+      s2: 1190307694
+      s3: -225679717
+    positionOffset: {x: 0, y: 0, z: 0}
+    branch:
+      id: 14977
+      direction: {x: 0.34128183, y: 0.23639177, z: -0.52339494}
+      _position: 0.2
+      positionFromBranch: {x: -0.8135225, y: 1.1048301, z: -1.8153436}
+      positionFromRoot: {x: -0.19148898, y: 9.554441, z: -1.9038388}
+      _lengthProcessed: 1
+      _maxLength: 6.8
+      _lengthFactor: 1
+      _maxGirth: 1.26
+      _minGirth: 0.02
+      girthCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      girthScale: 0.57014513
+      curve:
+        _close: 0
+        _axis: 0
+        nodes:
+        - handleStyle: 2
+          _position: {x: 0, y: 0, z: 0}
+          _handle1: {x: 0, y: 0, z: 0}
+          _handle2: {x: 1.1603582, y: -0.42896298, z: -1.7795427}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        - handleStyle: 2
+          _position: {x: 3.4738438, y: 2.4061875, z: -5.3275394}
+          _handle1: {x: -0.43145144, y: -1.0182886, z: 0.66168046}
+          _handle2: {x: 0, y: 0, z: 0}
+          up: {x: 0, y: 1, z: 0}
+          roll: 0
+          scale: {x: 0, y: 1}
+          direction: {x: 0, y: 0, z: 1}
+        resolutionAngle: 5
+        noiseFactorAtFirstNode: 0.37173334
+        noiseFactorAtLastNode: 0.47173336
+        noiseScaleAtFirstNode: 0.47173333
+        noiseScaleAtLastNode: 0.57173336
+        noiseLengthOffset: 13.679695
+        spareNoiseOffsetAtFirstPoint: 0
+        referenceForward: {x: 0, y: 1, z: 0}
+        normalMode: 0
+        referenceNormal: {x: 0, y: 0, z: 1}
+        referencePoint: {x: 0, y: 0, z: 0}
+      _levelLengthGrowthFactor: 0.9
+      parentBranchId: 14958
+      isTuned: 0
+      isTrunk: 0
+      helperStructureLevelId: 2
+    structureId: -1
+  rootStructureLevel:
+    id: 0
+    parentId: 0
+    sharingGroupId: 0
+    sharingNextId: 0
+    enabled: 1
+    isSprout: 0
+    isLocked: 0
+    sproutGroupId: 0
+    probability: 1
+    sharedProbability: 0.5
+    distribution: 0
+    distributionCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    childrenPerNode: 1
+    minFrequency: 1
+    maxFrequency: 1
+    randomTwirlOffsetEnabled: 1
+    twirlOffset: 0
+    twirl: 0
+    parallelAlignAtTop: 0.7
+    parallelAlignAtBase: 0.3
+    parallelAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gravityAlignAtTop: 0.4
+    gravityAlignAtBase: 0.4
+    gravityAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    horizontalAlignAtTop: 0.4
+    horizontalAlignAtBase: 0.4
+    horizontalAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    lengthAtTop: 18
+    lengthAtBase: 12
+    lengthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minGirthScale: 1
+    maxGirthScale: 1
+    actionRangeEnabled: 0
+    minActionRange: 0
+    maxActionRange: 1
+    radius: 0
+    fromBranchCenter: 0
+    nodePosition: {x: 6, y: 123}
+--- !u!114 &114801116908072712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d61721113ae4bdd9477f4f20384c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 7
+  srcElementId: 0
+  sinkElementId: 5
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 15
+  sinkElementClassType: 9
+  nodePosition: {x: -149.5, y: 87.5}
+  sproutMeshes:
+  - groupId: 1
+    horizontalAlignAtBase: 0.676
+    horizontalAlignAtTop: 0.935
+    horizontalAlignCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    scaleAtBase: 2.2
+    scaleAtTop: 1.9
+    scaleCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    isTwoSided: 1
+    mode: 1
+    width: 1.2
+    height: 2
+    pivotX: 0.5
+    pivotY: 0
+    overrideHeightWithTexture: 1
+    meshGameObject: {fileID: 1700287767245516, guid: da0474804a8aa41c8af23ddf72f3e092,
+      type: 2}
+    meshScale: {x: 1, y: 1, z: 1}
+    meshRotation: {x: 0, y: 0, z: 0}
+    meshOffset: {x: 0, y: 0, z: 0}
+    billboardAtOrigin: 0
+    billboardRotationAtTop: 0
+    billboardRotationAtBase: 0
+    billboardRotationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    depth: -0.4
+    innerPlaneSize: 1
+    resolutionWidth: 1
+    resolutionHeight: 1
+    gravityBendingAtBase: 0
+    gravityBendingAtTop: 0
+    gravityBendingCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  selectedMeshIndex: 0
+--- !u!114 &114838318049940912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634c9aac0d20b4bcdbf2528edff22f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 111974678
+  isActive: 1
+  id: 6
+  srcElementId: 12
+  sinkElementId: 2
+  index: 0
+  srcElementIndex: -1
+  sinkElementIndex: 0
+  srcElementClassType: 13
+  sinkElementClassType: 2
+  nodePosition: {x: -124, y: -442.5}
+  maxFrequency: 12
+  minFrequency: 9
+  distribution: 0
+  whorledStep: 3
+  distributionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  twirl: 0.751
+  parallelAlignAtTop: 0.603
+  parallelAlignAtBase: -0.063
+  parallelAlignCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gravityAlignAtTop: 0.381
+  gravityAlignAtBase: 0
+  gravityAlignCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fromBranchCenter: 0
+  distributionOrigin: 0
+  spreadEnabled: 0
+  spreadRange: 0.75
+  sproutSeeds:
+  - groupId: 1
+--- !u!114 &114938166962849024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f1dcfdfd32e4cb1b4ae1c2d6edc4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: -1909040528
+  isActive: 1
+  id: 10
+  srcElementId: 5
+  sinkElementId: 9
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 9
+  sinkElementClassType: 7
+  nodePosition: {x: -133, y: 266.5}
+  sproutMaps:
+  - groupId: 1
+    mode: 0
+    customMaterial: {fileID: 2100000, guid: 7ac6ce220b7104fdbbd02eb20fda4054, type: 2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    subsurfaceColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    transparency: {r: 0.97794116, g: 0.84850776, b: 0.9583029, a: 1}
+    alphaCutoff: 0.35
+    translucencyViewDependency: 0.294
+    shadowStrength: 0.854
+    shadowOffsetScale: 4.91
+    sproutAreas:
+    - enabled: 1
+      x: 0.030812325
+      y: 0.38655463
+      width: 0.3348026
+      height: 0.60769
+      pivotX: 0.7153799
+      pivotY: 0.03494065
+      texture: {fileID: 2800000, guid: 9d2dbb4538a7148a0a8e9f02ef427e6d, type: 3}
+      normalMap: {fileID: 0}
+    - enabled: 1
+      x: 0.36555678
+      y: 0.48754814
+      width: 0.37178263
+      height: 0.5124518
+      pivotX: 0.4856496
+      pivotY: 0
+      texture: {fileID: 2800000, guid: 9d2dbb4538a7148a0a8e9f02ef427e6d, type: 3}
+      normalMap: {fileID: 0}
+    - enabled: 1
+      x: 0.7299086
+      y: 0.5192379
+      width: 0.2700914
+      height: 0.44623965
+      pivotX: 0.45873865
+      pivotY: 0.033123992
+      texture: {fileID: 2800000, guid: 9d2dbb4538a7148a0a8e9f02ef427e6d, type: 3}
+      normalMap: {fileID: 0}
+    - enabled: 1
+      x: 0.5889225
+      y: 0.027937176
+      width: 0.3731462
+      height: 0.47150788
+      pivotX: 0.86564577
+      pivotY: 0.038368393
+      texture: {fileID: 2800000, guid: 9d2dbb4538a7148a0a8e9f02ef427e6d, type: 3}
+      normalMap: {fileID: 0}
+    vector4UV0Enabled: 0
+    selectedAreaIndex: 0
+  selectedMapIndex: 0
+--- !u!114 &114970149601894878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c2d98b7a4cb4a1d91cfe32c3c35964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 9
+  srcElementId: 10
+  sinkElementId: 8
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: 0
+  srcElementClassType: 12
+  sinkElementClassType: 4
+  nodePosition: {x: 45, y: 347.5}
+  windSpread: 0.497
+  windAmplitude: 0.61
+  sproutTurbulence: 0.636
+  sproutSway: 1
+  windQuality: 3
+  useMultiPhaseOnTrunk: 0
+  previewWindAlways: 0
+  windFactorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &114986551106722632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5807526cb0a4654bfa53c2f6cfa1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSeedFixed: 0
+  fixedSeed: 0
+  seed: 0
+  isActive: 1
+  id: 8
+  srcElementId: 9
+  sinkElementId: -1
+  index: 0
+  srcElementIndex: 0
+  sinkElementIndex: -1
+  srcElementClassType: 7
+  sinkElementClassType: 0
+  nodePosition: {x: -85, y: 427.5}
+  useCustomPositions: 1
+  positions: []
+  selectedPositionIndex: -1
+  addCollisionObjectAtTrunk: 0
