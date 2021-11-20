@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static MainMenuManager instance;
+
+    [Header("PAGE PANELS")]
     [SerializeField]
     private GameObject startScreenPage;
     [SerializeField]
@@ -19,14 +23,34 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private TMP_Text infoText;
 
+    [Header("OPTIONS PAGE")]
+    [SerializeField]
+    private TMP_Dropdown dropdownQual;
+    [SerializeField]
+    private TMP_Dropdown dropdownRes;
+    [SerializeField]
+    private Toggle isFullScreen;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
+
     private void Start()
     {
         //startScreenPage.SetActive(true);
-        //mainMenuPage.SetActive(false);
-        //singlePlayerPage.SetActive(false);
-        //multiPlayerPage.SetActive(false);
-        //optionPage.SetActive(false);
-        //lobbyListPanel.SetActive(false);
+        mainMenuPage.SetActive(true);
+        singlePlayerPage.SetActive(false);
+        multiPlayerPage.SetActive(false);
+        optionPage.SetActive(false);
+        lobbyListPanel.SetActive(false);
+
+        dropdownQual.value = QualitySettings.GetQualityLevel();
+        dropdownRes.value = (Screen.width == 1920 ? 0 : (Screen.width == 1366 ? 1 : 2));
+        isFullScreen.isOn = Screen.fullScreen;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void QuitGame()
@@ -72,7 +96,9 @@ public class MainMenuManager : MonoBehaviour
     public void HostLobby()
     {
         Debug.Log("HOSTING LOBBY");
-        SteamLobbyManager.instance.HostLobby();
+        CameraManager.instance.StartAnim();
+        multiPlayerPage.SetActive(false);
+        //SteamLobbyManager.instance.HostLobby();
     }
 
     public void JoinLobby()
@@ -92,5 +118,27 @@ public class MainMenuManager : MonoBehaviour
     private void Update()
     {
         SteamLobbyManager.instance.lobbyListParent = GameObject.Find("LobbyContentParent");
+    }
+
+    public void HostGame()
+    {
+        SteamLobbyManager.instance.HostLobby();
+    }
+
+    public void ChangeQuality(int val)
+    {
+        QualitySettings.SetQualityLevel(val);
+    }
+
+    public void ChangeResolution(int val)
+    {
+        if (val == 0) Screen.SetResolution(1920, 1080, isFullScreen);
+        else if (val == 1) Screen.SetResolution(1366, 768, isFullScreen);
+        else if (val == 2) Screen.SetResolution(1280, 720, isFullScreen);
+    }
+
+    public void ChangeFull(bool val)
+    {
+        Screen.fullScreen = val;
     }
 }

@@ -76,6 +76,8 @@ public class LLPS : NetworkBehaviour
         IM.Controls.Player.Pause.performed += ctx => toPause = true;
         IM.Controls.Player.Pause.canceled += ctx => toPause = false;
 
+        IM.Controls.FireBending.TorchLight.performed += ctx => Cmdsds();
+
         CmdSetSelectCharUI(true);
     }
 
@@ -179,4 +181,10 @@ public class LLPS : NetworkBehaviour
     {
         if (isClient) MCLM.Instance.UpdateUI();
     }
+
+    [Command]
+    private void Cmdsds() => Rpcsds();
+
+    [ClientRpc]
+    private void Rpcsds() => print("ASJFBAKSFJKASHBF");
 }

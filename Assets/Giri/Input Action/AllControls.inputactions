@@ -186,7 +186,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DestroyWall",
+                    "name": "OpenWall",
                     "type": "Button",
                     "id": "ac65061c-37b9-4f04-8aae-d7677d19f926",
                     "expectedControlType": "Button",
@@ -224,7 +224,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "DestroyWall",
+                    "action": "OpenWall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -521,6 +521,17 @@
                     "name": "",
                     "id": "91850578-7813-4416-8534-e739da03c254",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Paused",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d1ea8b6-613a-4d1d-a3fa-ad09fe6491e5",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

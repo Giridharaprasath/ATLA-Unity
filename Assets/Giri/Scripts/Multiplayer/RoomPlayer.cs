@@ -1,9 +1,12 @@
 using UnityEngine;
 using Mirror;
+using Steamworks;
 
 public class RoomPlayer : NetworkBehaviour
 {
     [Header("Character Info")]
+    [SyncVar]
+    public bool isLeader = false;
     [SyncVar]
     public bool isPlayerReady = false;
     [SyncVar]
@@ -11,17 +14,11 @@ public class RoomPlayer : NetworkBehaviour
     [SyncVar]
     public int playerConnID;
     [SyncVar]
-    public bool isLeader = false;
-    [SyncVar]
     public string playerCharName;
-    [SyncVar(hook = nameof(HandleIsCharSelected))]
-    public bool isChar1Selected = false;
-    [SyncVar(hook = nameof(HandleIsCharSelected))]
-    public bool isChar2Selected = false;
-    [SyncVar(hook = nameof(HandleIsCharSelected))]
-    public bool isChar3Selected = false;
-    [SyncVar(hook = nameof(HandleIsCharSelected))]
-    public bool isChar4Selected = false;
+    [SyncVar]
+    public int playerCharIndex;
+    [SerializeField]
+    private string thisCharName;
 
     [Header("Player Scripts")]
     [SerializeField]
@@ -29,90 +26,168 @@ public class RoomPlayer : NetworkBehaviour
     [SerializeField]
     private AangPlayerMovement playerMove;
     [SerializeField]
-    private FireBending fireBending;
-    [SerializeField]
-    private EarthBending earthBending;
-    [SerializeField]
     private CharacterController controller;
     [SerializeField]
     private CapsuleCollider capCol;
 
-    private ATLANetworkManager room;
-    private ATLANetworkManager Room
+    [Header("Door")]
+    [SerializeField]
+    private DoorManager doorManager;
+    [SerializeField]
+    private bool canChangeDoorState;
+
+    [HideInInspector]
+    public bool toPause, isPaused;
+
+    private ATLANetworkManager game;
+    private ATLANetworkManager Game
     {
         get
         {
-            if (room != null) return room;
-            return room = ATLANetworkManager.singleton as ATLANetworkManager;
+            if (game != null) return game;
+            return game = ATLANetworkManager.singleton as ATLANetworkManager;
         }
     }
 
     public override void OnStartClient()
     {
-        Room.roomPlayers.Add(this);
-        SelectCharacterManager.instance.UpdateChar();
+        //Debug.Log("ROOM PLAYER CLIENT STARTED");
+        Game.roomPlayers.Add(this);
+        RoomPlayerManager.instance.UpdatePlayerInfos();
     }
 
     public override void OnStopClient()
     {
-        Room.roomPlayers.Remove(this);
-        SelectCharacterManager.instance.UpdateChar();
+        //Debug.Log(playerName + " IS LEAVING");
+        Game.roomPlayers.Remove(this);
+        if (Game.CheckIsLobbyActiveScene()) RoomPlayerManager.instance.UpdatePlayerInfos();
     }
 
     public override void OnStartAuthority()
     {
+        SetIsLeader();
+        CmdSetPlayerName(SteamFriends.GetPersonaName().ToString());
+
         gameObject.name = "LocalRoomPlayer";
-        SelectCharacterManager.instance.FindRoomPlayer();
-        CmdSetCharType(); 
+
         thirdPersonCamera.SetActive(true);
         playerMove.enabled = true;
-        fireBending.enabled = true;
-        earthBending.enabled = true;
         controller.enabled = true;
         capCol.enabled = false;
+        //Debug.Log(playerName + " HAS AUTHORITY");
+
+        SelectCharacterManager.instance.SetState(false);
+        RoomPlayerManager.instance.FindMyRoomPlayer();
+        if (isLeader) RoomPlayerManager.instance.SetPlayerKickButton(playerCharIndex);
+
+        InputManager.Controls.UI.Paused.performed += ctx => toPause = true;
+        InputManager.Controls.UI.Paused.canceled += ctx => toPause = false;
+
+        InputManager.Controls.EarthBending.OpenWall.performed += ctx => ChangeDoorState();
+    }
+
+    [Server]
+    public void ServerSetCharIndex(int i) => playerCharIndex = i;
+
+    [Server]
+    public void ServerSetCharName() => playerCharName = thisCharName;
+
+    [Server]
+    public void ServerSetConnID(int id) => playerConnID = id;
+
+    private void SetIsLeader()
+    {
+        if (isServer && isLocalPlayer) CmdSetIsLeader();
     }
 
     [Command]
-    public void CmdSetCharType()
-    {
-        Debug.Log("CMDSETCHARTYPE");
-        if (playerCharName == "Air")
-        {
-            isChar1Selected = true;
-            this.HandleIsCharSelected(!this.isChar1Selected, this.isChar1Selected);
-        }
-        if (playerCharName == "Water")
-        {
-            isChar2Selected = true;
-            this.HandleIsCharSelected(!this.isChar2Selected, this.isChar2Selected);
-        }
-        if (playerCharName == "Earth")
-        {
-            isChar3Selected = true;
-            this.HandleIsCharSelected(!this.isChar3Selected, this.isChar3Selected);
-        }
-        if (playerCharName == "Fire")
-        {
-            isChar4Selected = true;
-            this.HandleIsCharSelected(!this.isChar4Selected, this.isChar4Selected);
-        }
-    }
+    private void CmdSetIsLeader() => isLeader = true;
 
-    public void HandleIsCharSelected(bool oldValue, bool newValue)
+    [Command]
+    private void CmdSetPlayerName(string name) => playerName = name;
+
+    private void Update()
     {
-        if (isClient) SelectCharacterManager.instance.UpdateChar();
+        if (isLocalPlayer)
+        {
+            if (toPause)
+            {
+                if (!isPaused) RoomPlayerManager.instance.PauseGame();
+                else RoomPlayerManager.instance.ResumeGame();
+            }
+
+            if (isPaused) UnlockCursor();
+            else LockCursor();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "StartGame") CmdSetIsPlayerReady(true);
+        if (other.gameObject.tag == "StartGame")
+        {
+            CmdSetIsReady(true);
+            Debug.Log("PLAYER IS READY");
+        }
+
+        if (other.gameObject.tag == "DoorOpenTrigger")
+        {
+            doorManager = other.gameObject.GetComponent<DoorManager>();
+            canChangeDoorState = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        CmdSetIsPlayerReady(false);
+        CmdSetIsReady(false);
+        doorManager = null;
+        canChangeDoorState = false;
     }
 
     [Command]
-    private void CmdSetIsPlayerReady(bool val) => isPlayerReady = val;
+    private void CmdSetIsReady(bool val)
+    {
+        isPlayerReady = val;
+        Game.CheckIsReady();
+    }
+
+    public void QuitLobby()
+    {
+        if (hasAuthority)
+        {
+            if (isLeader) Game.StopHost();
+            else Game.StopClient();
+
+            SteamMatchmaking.LeaveLobby((CSteamID)RoomPlayerManager.instance.lobbyID);
+            UnlockCursor();
+        }
+    }
+
+    private void LockCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void ChangeDoorState()
+    {
+        if (canChangeDoorState) doorManager.ChangeDoorState();
+    }
+
+    public void StopPlayer()
+    {
+        thirdPersonCamera.SetActive(false);
+        playerMove.enabled = false;
+        UnlockCursor();
+    }
+
+    public void StartGame()
+    {
+        Game.StartGame();
+    }
 }

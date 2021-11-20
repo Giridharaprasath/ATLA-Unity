@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 0}
+    m_ConstrainedObject: {fileID: 8688284805184364418}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -1769,7 +1769,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8688284804220797704}
-  - component: {fileID: 8688284804220797706}
   m_Layer: 6
   m_Name: Abilities
   m_TagString: Untagged
@@ -1793,30 +1792,6 @@ Transform:
   m_Father: {fileID: 8688284805061416403}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8688284804220797706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8688284804220797711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98dffec5860ef9e489cba0ffda24c169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visionCam: {fileID: 8688284804854824334}
-  groundMat: {fileID: 2100000, guid: a24d113c83a293a40b7a75b3889cfa0f, type: 2}
-  playerT: {x: 0, y: 0, z: 0}
-  innerR: -2
-  outerR: 0
-  isSensing: 0
-  isGrounded: 0
-  aimTarget: {fileID: 2871699009544952091}
-  target: {fileID: 0}
-  wallParent: {fileID: 0}
-  wallTrigger: {fileID: 0}
-  wantToDestroy: 0
 --- !u!1 &8688284804225881961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3462,7 @@ GameObject:
   - component: {fileID: -5090218322799909344}
   - component: {fileID: 7977175680269480920}
   - component: {fileID: 5280740333648037780}
+  - component: {fileID: 5054059829153486326}
   m_Layer: 6
   m_Name: Aang - Fire
   m_TagString: Untagged
@@ -3554,7 +3530,7 @@ CharacterController:
   m_Height: 3
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.58, z: 0}
@@ -3749,8 +3725,6 @@ MonoBehaviour:
   isChar4Selected: 0
   thirdPersonCamera: {fileID: 8688284804071459432}
   playerMove: {fileID: 8688284805061416400}
-  fireBending: {fileID: 5280740333648037780}
-  earthBending: {fileID: 8688284804220797706}
   controller: {fileID: 8688284805061416401}
   capCol: {fileID: 7977175680269480920}
 --- !u!114 &-5711798004338378860
@@ -3829,6 +3803,29 @@ MonoBehaviour:
   fireTorch: {fileID: 8688284804014168571}
   animator: {fileID: 8688284805061416402}
   isTorch: 0
+--- !u!114 &5054059829153486326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8688284805061416405}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dffec5860ef9e489cba0ffda24c169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  animator: {fileID: 8688284805061416402}
+  visionCam: {fileID: 8688284804854824334}
+  groundMat: {fileID: 2100000, guid: a24d113c83a293a40b7a75b3889cfa0f, type: 2}
+  isSensing: 0
+  aimTarget: {fileID: 2871699009544952091}
+  target: {fileID: 0}
+  wallParent: {fileID: 0}
+  wallTrigger: {fileID: 0}
+  isOpeningWall: 0
 --- !u!1 &8688284805085507625
 GameObject:
   m_ObjectHideFlags: 0

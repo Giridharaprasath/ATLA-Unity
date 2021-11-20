@@ -43,13 +43,13 @@ public class SteamLobbyManager : MonoBehaviour
 
     public void HostLobby()
     {
-        Debug.Log("HOSTLOBBY: LOBBY CREATED OF TYPE: PUBLIC MAX 4");
+        Debug.Log("RUNNIN HOST LOBBY: LOBBY CREATED OF TYPE: PUBLIC MAX 4");
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, networkManager.maxConnections);
     }
 
     public void JoinLobby(CSteamID lobbyID)
     {
-        Debug.Log("JOINLOBBY: JOINING LOBBY WITH STEAM ID: " + lobbyID.ToString());
+        Debug.Log("RUNNING JOIN LOBBY: JOINING LOBBY WITH STEAM ID: " + lobbyID.ToString());
         SteamMatchmaking.JoinLobby(lobbyID);
     }
 
@@ -62,7 +62,7 @@ public class SteamLobbyManager : MonoBehaviour
 
     private void OnLobbyCreated(LobbyCreated_t callback)
     {
-        Debug.Log("ONLOBBYCREATED");
+        //Debug.Log("RUNNING ON LOBBY CREATED");
         if (callback.m_eResult != EResult.k_EResultOK) return;
 
         networkManager.StartHost();
@@ -84,14 +84,14 @@ public class SteamLobbyManager : MonoBehaviour
 
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)
     {
-        Debug.Log("ONGAMELOBBYJOINREQUESTED");
+        //Debug.Log("RUNNING ON GAME LOBBY JOIN REQUESTED");
         SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
     }
 
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         current_lobbyID = callback.m_ulSteamIDLobby;
-        Debug.Log("ONLOBBYENTERED: LOBBY WITH ID: " + current_lobbyID.ToString());
+        Debug.Log("RUNNING ON LOBBY ENTERED: LOBBY WITH ID: " + current_lobbyID.ToString());
         if (NetworkServer.active) return;
 
         string hostAddress = SteamMatchmaking.GetLobbyData(
@@ -108,19 +108,21 @@ public class SteamLobbyManager : MonoBehaviour
         for (int i = 0; i < result.m_nLobbiesMatching; i++)
         {
             CSteamID lobbyID = SteamMatchmaking.GetLobbyByIndex(i);
-            if ((lobbyID.m_SteamID, "GameName").Equals("ATLA"))
-            {
-                lobbyIDs.Add(lobbyID);
-                c++;
-                SteamMatchmaking.RequestLobbyData(lobbyID);
-            }
+            //if ((lobbyID.m_SteamID, "GameName").Equals("ATLA"))
+            //{
+            //    lobbyIDs.Add(lobbyID);
+            //    c++;
+            //    SteamMatchmaking.RequestLobbyData(lobbyID);
+            //}
+            lobbyIDs.Add(lobbyID);
+            SteamMatchmaking.RequestLobbyData(lobbyID);
         }
         Debug.Log("FOUND " + c + " LOBBIES!!");
     }
 
     private void OnGetLobbyInfo(LobbyDataUpdate_t result)
     {
-        Debug.Log("ONGETLOBBYINFO");
+        //Debug.Log("RUNNING ON GET LOBBY INFO");
         for (int i = 0; i < lobbyIDs.Count; i++)
         {
             if (lobbyIDs[i].m_SteamID == result.m_ulSteamIDLobby)
@@ -132,6 +134,7 @@ public class SteamLobbyManager : MonoBehaviour
                 listOfLobbyInfoScript.lobbyName = SteamMatchmaking.GetLobbyData((CSteamID)lobbyIDs[i].m_SteamID, "Name");
                 listOfLobbyInfoScript.numOfPlayers = SteamMatchmaking.GetNumLobbyMembers((CSteamID)lobbyIDs[i].m_SteamID);
                 listOfLobbyInfoScript.maxPlayers = SteamMatchmaking.GetLobbyMemberLimit((CSteamID)lobbyIDs[i].m_SteamID);
+                //listOfLobbyInfoScript.isGameStarted = networkManager.isGameStarted;
                 listOfLobbyInfoScript.SetListOfLobbyInfo();
 
                 listOfLobbyInfoScript.transform.SetParent(lobbyListParent.transform);
@@ -152,11 +155,5 @@ public class SteamLobbyManager : MonoBehaviour
             nO = null;
         }
         listOfLobbyInfos.Clear();
-    }
-
-    public void InviteFrinds()
-    {
-        //SteamFriends.ActivateGameOverlay("Friends");
-        //SteamFriends.ActivateGameOverlayInviteDialog((CSteamID)current_lobbyID);
     }
 }

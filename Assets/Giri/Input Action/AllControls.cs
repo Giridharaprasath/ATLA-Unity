@@ -199,7 +199,7 @@ public class @AllControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""DestroyWall"",
+                    ""name"": ""OpenWall"",
                     ""type"": ""Button"",
                     ""id"": ""ac65061c-37b9-4f04-8aae-d7677d19f926"",
                     ""expectedControlType"": ""Button"",
@@ -237,7 +237,7 @@ public class @AllControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""DestroyWall"",
+                    ""action"": ""OpenWall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -543,6 +543,17 @@ public class @AllControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4d1ea8b6-613a-4d1d-a3fa-ad09fe6491e5"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Paused"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4153dfb2-a9ff-4163-ba8f-27aba552752a"",
                     ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
@@ -605,7 +616,7 @@ public class @AllControls : IInputActionCollection, IDisposable
         // EarthBending
         m_EarthBending = asset.FindActionMap("EarthBending", throwIfNotFound: true);
         m_EarthBending_SeismicSense = m_EarthBending.FindAction("SeismicSense", throwIfNotFound: true);
-        m_EarthBending_DestroyWall = m_EarthBending.FindAction("DestroyWall", throwIfNotFound: true);
+        m_EarthBending_OpenWall = m_EarthBending.FindAction("OpenWall", throwIfNotFound: true);
         // FireBending
         m_FireBending = asset.FindActionMap("FireBending", throwIfNotFound: true);
         m_FireBending_FireTorch = m_FireBending.FindAction("FireTorch", throwIfNotFound: true);
@@ -726,13 +737,13 @@ public class @AllControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_EarthBending;
     private IEarthBendingActions m_EarthBendingActionsCallbackInterface;
     private readonly InputAction m_EarthBending_SeismicSense;
-    private readonly InputAction m_EarthBending_DestroyWall;
+    private readonly InputAction m_EarthBending_OpenWall;
     public struct EarthBendingActions
     {
         private @AllControls m_Wrapper;
         public EarthBendingActions(@AllControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @SeismicSense => m_Wrapper.m_EarthBending_SeismicSense;
-        public InputAction @DestroyWall => m_Wrapper.m_EarthBending_DestroyWall;
+        public InputAction @OpenWall => m_Wrapper.m_EarthBending_OpenWall;
         public InputActionMap Get() { return m_Wrapper.m_EarthBending; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -745,9 +756,9 @@ public class @AllControls : IInputActionCollection, IDisposable
                 @SeismicSense.started -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnSeismicSense;
                 @SeismicSense.performed -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnSeismicSense;
                 @SeismicSense.canceled -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnSeismicSense;
-                @DestroyWall.started -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnDestroyWall;
-                @DestroyWall.performed -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnDestroyWall;
-                @DestroyWall.canceled -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnDestroyWall;
+                @OpenWall.started -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnOpenWall;
+                @OpenWall.performed -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnOpenWall;
+                @OpenWall.canceled -= m_Wrapper.m_EarthBendingActionsCallbackInterface.OnOpenWall;
             }
             m_Wrapper.m_EarthBendingActionsCallbackInterface = instance;
             if (instance != null)
@@ -755,9 +766,9 @@ public class @AllControls : IInputActionCollection, IDisposable
                 @SeismicSense.started += instance.OnSeismicSense;
                 @SeismicSense.performed += instance.OnSeismicSense;
                 @SeismicSense.canceled += instance.OnSeismicSense;
-                @DestroyWall.started += instance.OnDestroyWall;
-                @DestroyWall.performed += instance.OnDestroyWall;
-                @DestroyWall.canceled += instance.OnDestroyWall;
+                @OpenWall.started += instance.OnOpenWall;
+                @OpenWall.performed += instance.OnOpenWall;
+                @OpenWall.canceled += instance.OnOpenWall;
             }
         }
     }
@@ -921,7 +932,7 @@ public class @AllControls : IInputActionCollection, IDisposable
     public interface IEarthBendingActions
     {
         void OnSeismicSense(InputAction.CallbackContext context);
-        void OnDestroyWall(InputAction.CallbackContext context);
+        void OnOpenWall(InputAction.CallbackContext context);
     }
     public interface IFireBendingActions
     {

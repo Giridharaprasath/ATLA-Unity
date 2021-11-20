@@ -35,4 +35,24 @@ public class InputManager : MonoBehaviour
         Controls.asset.FindActionMap("FireBending").Enable();
         Controls.asset.FindActionMap("EarthBending").Enable();
     }
+
+    public static void StartedOpenWall()
+    {
+        Controls.asset.FindActionMap("EarthBending").Disable();
+        Controls.asset.FindActionMap("FireBending").Disable();
+        Controls.asset.FindAction("Player/Move").Disable();
+        Controls.asset.FindAction("Player/Jump").Disable();
+    }
+
+    public static void FinishedOpenWall()
+    {
+        Controls.asset.FindActionMap("EarthBending").Enable();
+        Controls.asset.FindActionMap("FireBending").Enable();
+        Controls.asset.FindAction("Player/Move").Enable();
+        Controls.asset.FindAction("Player/Jump").Enable();
+    }
+
+    public static void DisableEverything() => Controls.Disable();
+
+    public static void EnableEverything() => Controls.Enable();
 }

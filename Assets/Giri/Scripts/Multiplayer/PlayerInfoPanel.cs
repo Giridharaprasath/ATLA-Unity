@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerInfoPanel : MonoBehaviour
 {
@@ -14,20 +15,6 @@ public class PlayerInfoPanel : MonoBehaviour
     [SerializeField]
     private GameObject kickPlayerButton;
 
-    public GameObject roomLobbyPlayerObject;
-    public RoomLobbyPlayer roomLobbyPlayerScript;
-
-    private void Start()
-    {
-        roomLobbyPlayerObject = GameObject.Find("LocalRoomLobbyPlayer");
-        roomLobbyPlayerScript = roomLobbyPlayerObject.GetComponent<RoomLobbyPlayer>();
-        if (this.playerInfoConnID == roomLobbyPlayerScript.playerConnID)
-        {
-            if (roomLobbyPlayerScript.myPlayerInfoPanel == null) roomLobbyPlayerScript.myPlayerInfoPanel = this;
-            kickPlayerButton.SetActive(false);
-        }
-    }
-
     public void SetPlayerNameText()
     {
         playerInfoNameText.text = playerInfoName;
@@ -36,15 +23,5 @@ public class PlayerInfoPanel : MonoBehaviour
     public void SetCharNameText()
     {
         playerInfoCharText.text = playerInfoCharName;
-    }
-
-    public void SetKickPlayerButton(RoomLobbyPlayer player)
-    {
-        if (!player.isLeader) kickPlayerButton.SetActive(true);
-    }
-
-    public void KickPlayer()
-    {
-        roomLobbyPlayerScript.PlayerLeave(playerInfoConnID);
     }
 }

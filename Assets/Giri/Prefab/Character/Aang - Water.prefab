@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 0}
+    m_ConstrainedObject: {fileID: 8441770200741381382}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -2072,6 +2072,7 @@ GameObject:
   - component: {fileID: 4573804728761308670}
   - component: {fileID: 3211581103359973646}
   - component: {fileID: 8496258936730917190}
+  - component: {fileID: 1642655018568082623}
   m_Layer: 6
   m_Name: Aang - Water
   m_TagString: Untagged
@@ -2139,7 +2140,7 @@ CharacterController:
   m_Height: 3
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.58, z: 0}
@@ -2334,8 +2335,6 @@ MonoBehaviour:
   isChar4Selected: 0
   thirdPersonCamera: {fileID: 8441770200992824508}
   playerMove: {fileID: 8441770200027334598}
-  fireBending: {fileID: 8496258936730917190}
-  earthBending: {fileID: 8441770200694924877}
   controller: {fileID: 8441770200027334599}
   capCol: {fileID: 3211581103359973646}
 --- !u!114 &-6267024278166767090
@@ -2414,6 +2413,29 @@ MonoBehaviour:
   fireTorch: {fileID: 8441770199676018054}
   animator: {fileID: 8441770200027334648}
   isTorch: 0
+--- !u!114 &1642655018568082623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441770200027334595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dffec5860ef9e489cba0ffda24c169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  animator: {fileID: 8441770200027334648}
+  visionCam: {fileID: 8441770200329430652}
+  groundMat: {fileID: 2100000, guid: a24d113c83a293a40b7a75b3889cfa0f, type: 2}
+  isSensing: 0
+  aimTarget: {fileID: 967300660248345195}
+  target: {fileID: 0}
+  wallParent: {fileID: 0}
+  wallTrigger: {fileID: 0}
+  isOpeningWall: 0
 --- !u!1 &8441770200048456299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,7 +3936,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8441770200694924875}
-  - component: {fileID: 8441770200694924877}
   m_Layer: 6
   m_Name: Abilities
   m_TagString: Untagged
@@ -3938,30 +3959,6 @@ Transform:
   m_Father: {fileID: 8441770200027334649}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8441770200694924877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8441770200694924874}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98dffec5860ef9e489cba0ffda24c169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visionCam: {fileID: 8441770200329430652}
-  groundMat: {fileID: 2100000, guid: a24d113c83a293a40b7a75b3889cfa0f, type: 2}
-  playerT: {x: 0, y: 0, z: 0}
-  innerR: -2
-  outerR: 0
-  isSensing: 0
-  isGrounded: 0
-  aimTarget: {fileID: 967300660248345195}
-  target: {fileID: 0}
-  wallParent: {fileID: 0}
-  wallTrigger: {fileID: 0}
-  wantToDestroy: 0
 --- !u!1 &8441770200696824787
 GameObject:
   m_ObjectHideFlags: 0

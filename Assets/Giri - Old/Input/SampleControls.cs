@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Giri/Input/SampleControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Giri - Old/Input/SampleControls.inputactions'
 
 using System;
 using System.Collections;

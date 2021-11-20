@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
@@ -7,191 +6,108 @@ public class SelectCharacterManager : NetworkBehaviour
 {
     public static SelectCharacterManager instance;
 
-    [Header("Select Character UI")]
+    [Header("CHARACTER SELECT")]
     [SerializeField]
-    private GameObject selectCharCamera;
+    private GameObject charSelectCamera;
     [SerializeField]
-    private GameObject selectCharUI;
+    private GameObject charSelectUI;
     [SerializeField]
-    private int charIndex = 0;
+    private int charIndex;
     [SerializeField]
-    private Button selectCharButton;
+    private Button charSelectButton;
     [SerializeField]
-    private Transform charPreviewParent;
+    private Transform[] charSelectCameraPos;
     [SerializeField]
-    private bool isInSelectCharUI = true;
+    private bool isInCharSelect;
 
-    [SerializeField]
-    private AllCharacters[] allCharacters;
-    private List<GameObject> charInstance = new List<GameObject>();
-    [SerializeField]
-    private Transform startPosition;
-
+    [Header("CHARACTERS SELECTED")]
     [SyncVar]
-    public bool isChar1Selected;
+    public bool isAirSelected;
     [SyncVar]
-    public bool isChar2Selected;
+    public bool isWaterSelected;
     [SyncVar]
-    public bool isChar3Selected;
+    public bool isEarthSelected;
     [SyncVar]
-    public bool isChar4Selected;
+    public bool isFireSelected;
 
-    [Header("Character Spawned")]
-    public RoomPlayer char1Player;
-    public RoomPlayer char2Player;
-    public RoomPlayer char3Player;
-    public RoomPlayer char4Player;
-
-    [Header("My Players")]
-    public GameObject roomLobbyPlayer;
-    public RoomLobbyPlayer roomLobbyPlayerScript;
-
-    public GameObject roomPlayer;
-    public RoomPlayer roomPlayerScript;
-
-    private ATLANetworkManager room;
-    private ATLANetworkManager Room
+    private ATLANetworkManager game;
+    private ATLANetworkManager Game
     {
         get
         {
-            if (room != null) return room;
-            return room = ATLANetworkManager.singleton as ATLANetworkManager;
+            if (game != null) return game;
+            return game = ATLANetworkManager.singleton as ATLANetworkManager;
         }
     }
 
     private void Awake()
     {
         if (instance == null) instance = this;
-        charIndex = 0;
     }
 
     public override void OnStartClient()
     {
-        if (charPreviewParent.childCount == 0)
-        {
-            foreach (var chars in allCharacters)
-            {
-                GameObject charIn = Instantiate(chars.CharPreview, charPreviewParent);
-                charIn.SetActive(false);
-                charInstance.Add(charIn);
-            }
-        }
-        charInstance[charIndex].SetActive(true);
-        CheckChar();
+        //Debug.Log("LOBBY CHAR SELECT CLIENT STARTED");
+        SetState(true);
+        SetCharIndex(0);
     }
 
     public override void OnStopClient()
     {
-        CheckChar();
-        SelectCharUI(false);
+        //Debug.Log("LOBBY CHAR SELECT CLIENT STOPPED");
+        SetState(false);
     }
 
-    private void Update()
+    public void LoadChar()
     {
-        if (isInSelectCharUI) CheckChar();   
+        CmdLoadChar(charIndex);
     }
 
-    public void CheckChar()
+    [Command(requiresAuthority = false)]
+    private void CmdLoadChar(int i, NetworkConnectionToClient sender = null)
     {
-        Debug.Log("CHECKING CHARACTERS AVAILABLE");
-        if ((isChar1Selected && charIndex == 0) || (isChar2Selected && charIndex == 1)
-            || (isChar3Selected && charIndex == 2) || (isChar4Selected && charIndex == 3))
-        {
-            Debug.Log("CHARACTER ALREADY TAKEN");
-            selectCharButton.interactable = false;
-        }
-        else selectCharButton.interactable = true;
+        Game.AddRoomPlayer(sender, i);
     }
 
-    public void FindMyLobbyPlayer()
-    {
-        roomLobbyPlayer = GameObject.Find("LocalRoomLobbyPlayer");
-        roomLobbyPlayerScript = roomLobbyPlayer.GetComponent<RoomLobbyPlayer>();
-    }
+    [Server]
+    public void ServerSetAir(bool val) => isAirSelected = val;
 
-    public void FindRoomPlayer()
-    {
-        roomPlayer = GameObject.Find("LocalRoomPlayer");
-        roomPlayerScript = roomPlayer.GetComponent<RoomPlayer>();
-    }
+    [Server]
+    public void ServerSetWater(bool val) => isWaterSelected = val;
 
-    public void SelectCharUI(bool con)
+    [Server]
+    public void ServerSetEarth(bool val) => isEarthSelected = val;
+
+    [Server]
+    public void ServerSetFire(bool val) => isFireSelected = val;
+
+    public void SetState(bool val)
     {
-        selectCharUI.SetActive(con);
-        selectCharCamera.SetActive(con);
-        isInSelectCharUI = con;
+        charSelectCamera.SetActive(val);
+        charSelectUI.SetActive(val);
+        isInCharSelect = val;
     }
 
     public void SetCharIndex(int i)
     {
-        charInstance[charIndex].SetActive(false);
         charIndex = i;
-        charInstance[charIndex].SetActive(true);
+        charSelectCamera.transform.position = charSelectCameraPos[i].position;
+        charSelectCamera.transform.rotation = charSelectCameraPos[i].rotation;
     }
 
-    public void UpdateChar()
+    private void CheckChar(int i)
     {
-        Debug.Log("UPDATE CHAR");
-        foreach (RoomPlayer player in Room.roomPlayers)
-        {
-            if (player.isChar1Selected == true)
-            {
-                this.char1Player = player;
-                CmdSetIsChar1Selected(true);
-            }
-            else if (player.isChar2Selected == true)
-            {
-                this.char2Player = player;
-                CmdSetIsChar2Selected(true);
-            }
-            else if (player.isChar3Selected == true)
-            {
-                this.char3Player = player;
-                CmdSetIsChar3Selected(true);
-            }
-            else if (player.isChar4Selected == true)
-            {
-                this.char4Player = player;
-                CmdSetIsChar4Selected(true);
-            }
-        }
-        if (this.char1Player == null) CmdSetIsChar1Selected(false);
-        if (this.char2Player == null) CmdSetIsChar2Selected(false);
-        if (this.char3Player == null) CmdSetIsChar3Selected(false);
-        if (this.char4Player == null) CmdSetIsChar4Selected(false);
+        if ((i == 0 && isAirSelected) ||
+            (i == 1 && isWaterSelected) ||
+            (i == 2 && isEarthSelected) ||
+            (i == 3 && isFireSelected))
+            charSelectButton.interactable = false;
+
+        else charSelectButton.interactable = true;
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdSetIsChar1Selected(bool val) => isChar1Selected = val;
-
-    [Command(requiresAuthority = false)]
-    public void CmdSetIsChar2Selected(bool val) => isChar2Selected = val;
-
-    [Command(requiresAuthority = false)]
-    public void CmdSetIsChar3Selected(bool val) => isChar3Selected = val;
-
-    [Command(requiresAuthority = false)]
-    public void CmdSetIsChar4Selected(bool val) => isChar4Selected = val;
-
-    public void SetChar()
+    private void Update()
     {
-        roomLobbyPlayerScript.CmdSetChar(charIndex);
-        roomLobbyPlayerScript.CmdSetIsCharSelected(true);
-        roomLobbyPlayerScript.CmdSetCharName(allCharacters[charIndex].CharName);
-        SelectCharUI(false);
-    }
-
-    public void ServerSetChar(RoomLobbyPlayer player, int i)
-    {
-        var conn = player.connectionToClient;
-        Debug.Log(conn);
-        RoomPlayer roomPlayer = Instantiate(allCharacters[i].CharPrefab, startPosition.position, startPosition.rotation);
-
-        roomPlayer.playerConnID = player.playerConnID;
-        roomPlayer.playerName = player.playerName;
-        roomPlayer.isLeader = player.isLeader;
-        roomPlayer.playerCharName = allCharacters[i].CharName;
-
-        NetworkServer.ReplacePlayerForConnection(conn, roomPlayer.gameObject, true);
+        if (isInCharSelect) CheckChar(charIndex);
     }
 }

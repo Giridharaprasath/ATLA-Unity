@@ -1,39 +1,41 @@
 using System.Collections;
 using UnityEngine;
+using Mirror;
 
-public class EarthBending : MonoBehaviour
+public class EarthBending : NetworkBehaviour
 {
+    [Header("Player")]
+    [SerializeField]
+    private Animator animator;
+
     [Header("Ground Vision")]
     [SerializeField]
     private GameObject visionCam;
     [SerializeField]
     private Material groundMat;
-    [SerializeField]
     private Vector3 playerT;
-    [SerializeField]
     private float innerR = -2f;
-    [SerializeField]
     private float outerR = 0;
     [SerializeField]
     private bool isSensing;
-    [SerializeField]
     private bool isGrounded;
 
-    [Header("Aim Taget")]
+    [Header("Aim Target")]
     [SerializeField]
     private Transform aimTarget;
     [SerializeField]
     private GameObject target;
 
-    [Header("Wall Destroy")]
+    [Header("Wall Open")]
     [SerializeField]
     private GameObject wallParent;
     [SerializeField]
     private GameObject wallTrigger;
-    [SerializeField]
-    private bool wantToDestroy;
+    private bool wantToOpen;
+    [SyncVar]
+    public bool isOpeningWall;
     
-    private void Awake()
+    public override void OnStartAuthority()
     {
         visionCam.SetActive(false);
         groundMat.SetFloat("_outerR", outerR);
@@ -45,7 +47,7 @@ public class EarthBending : MonoBehaviour
 
         InputManager.Controls.EarthBending.SeismicSense.performed += ctx => PerformedSeismicSense();
 
-        InputManager.Controls.EarthBending.DestroyWall.performed += ctx => PerformedDestroyWall();
+        InputManager.Controls.EarthBending.OpenWall.performed += ctx => CmdSetIsOpeningWall(true);
     }
 
     private void PerformedSeismicSense()
@@ -60,17 +62,26 @@ public class EarthBending : MonoBehaviour
 
     private void PerformedDestroyWall()
     {
-        if (isGrounded && wantToDestroy)
+        if (isGrounded && wantToOpen)
         {
-            Debug.Log("WANT TO DESTROY THIS WALL: " + wallParent.name);
+            Debug.Log("WANT TO OPEN THIS WALL: " + wallParent.name);
+            float time = 1f;
+
+            Vector3 lookAt = wallParent.transform.position;
+            lookAt.y = transform.position.y;
+            StartCoroutine(LookAtSmoothly(transform, lookAt, time));
+            InputManager.StartedOpenWall();
         }
     }
 
     private void Update()
     {
-        playerT = transform.position;
-        isGrounded = GetComponentInParent<AangPlayerMovement>().isGrounded;
-        if (isSensing) aimTarget.position = target.transform.position;
+        if (isLocalPlayer)
+        {
+            playerT = transform.position;
+            isGrounded = GetComponent<AangPlayerMovement>().isGrounded;
+            if (isSensing) aimTarget.position = target.transform.position;
+        }
     }
 
     private IEnumerator SetSeismicSense()
@@ -103,11 +114,11 @@ public class EarthBending : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "WallDestroyTrigger")
+        if (other.gameObject.tag == "WallOpenTrigger")
         {
             wallTrigger = other.gameObject;
             wallParent = other.transform.parent.gameObject;
-            wantToDestroy = true;
+            wantToOpen = true;
         }
     }
 
@@ -115,6 +126,52 @@ public class EarthBending : MonoBehaviour
     {
         wallParent = null;
         wallTrigger = null;
-        wantToDestroy = false;
+        wantToOpen = false;
+    }
+
+    IEnumerator LookAtSmoothly(Transform objectToMove, Vector3 worldPosition, float duration)
+    {
+        Quaternion currentRot = objectToMove.rotation;
+        Quaternion newRot = Quaternion.LookRotation(worldPosition -
+            objectToMove.position, objectToMove.TransformDirection(Vector3.up));
+
+        float counter = 0;
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            objectToMove.rotation =
+                Quaternion.Lerp(currentRot, newRot, counter / duration);
+            yield return null;
+        }
+        animator.SetBool("ToOpenWall", true);
+    }
+
+    public void FinishedOpenWall()
+    {
+        InputManager.FinishedOpenWall();
+        animator.SetBool("ToOpenWall", false);
+        isOpeningWall = false;
+    }
+
+    public void PerformedOpenSingleWall()
+    {
+        if (isGrounded && wantToOpen)
+        {
+            //CmdSetIsOpeningWall(true);
+            float time = 1f;
+
+            Vector3 lookAt = wallParent.transform.position;
+            lookAt.y = transform.position.y;
+            StartCoroutine(LookAtSmoothly(transform, lookAt, time));
+            InputManager.StartedOpenWall();
+        }
+    }
+
+    [Command]
+    private void CmdSetIsOpeningWall(bool val)
+    {
+        isOpeningWall = val;
+        //wallParent.GetComponent<DoorManager>().SetDoorState();
+        PerformedOpenSingleWall();
     }
 }
