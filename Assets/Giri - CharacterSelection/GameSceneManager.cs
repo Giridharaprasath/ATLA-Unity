@@ -32,6 +32,7 @@ public class GameSceneManager : NetworkBehaviour
     {
         Debug.Log("RUNNING CAN CONTINUE GAME()");
         CmdChangeToGamePlayer();
+        InputManager.EnableEverything();
     }
 
     [Command(requiresAuthority = false)]

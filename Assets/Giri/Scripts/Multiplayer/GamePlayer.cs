@@ -32,6 +32,9 @@ public class GamePlayer : NetworkBehaviour
     [SerializeField]
     private FireBending fireBending;
 
+    [HideInInspector]
+    public bool toPause, isPaused;
+
     private ATLANetworkManager game;
     private ATLANetworkManager Game
     {
@@ -46,25 +49,32 @@ public class GamePlayer : NetworkBehaviour
     {
         //Debug.Log("GAME PLAYER CLIENT STARTED");
         Game.gamePlayers.Add(this);
+        GamePlayerManager.instance.UpdatePlayerInfos();
     }
 
     public override void OnStopClient()
     {
         Debug.Log(playerName + " IS LEAVING");
         Game.gamePlayers.Remove(this);
+        GamePlayerManager.instance.UpdatePlayerInfos();
     }
 
     public override void OnStartAuthority()
     {
         SetIsLeader();
         CmdSetPlayerName(SteamFriends.GetPersonaName().ToString());
+
         gameObject.name = "LocalGamePlayer";
         thirdPersonCamera.SetActive(true);
         playerMove.enabled = true;
         controller.enabled = true;
         capCol.enabled = false;
-        earthBending.enabled = true;
-        fireBending.enabled = true;
+        SetAbilities();
+        GamePlayerManager.instance.FindMyGamePlayer();
+        if (isLeader) GamePlayerManager.instance.SetPlayerKickButton(playerCharIndex);
+
+        InputManager.Controls.UI.Paused.performed += ctx => toPause = true;
+        InputManager.Controls.UI.Paused.canceled += ctx => toPause = false;
     }
 
     [Server]
@@ -87,12 +97,56 @@ public class GamePlayer : NetworkBehaviour
     [Command]
     private void CmdSetPlayerName(string name) => playerName = name;
 
+    private void SetAbilities()
+    {
+        if (thisCharName == "Earth")
+        {
+            earthBending = GetComponent<EarthBending>();
+            earthBending.enabled = true;
+        }
+        else if (thisCharName == "Fire")
+        {
+            fireBending = GetComponent<FireBending>();
+            fireBending.enabled = true;
+        }
+    }
+
     private void Update()
     {
         if (isLocalPlayer)
         {
-            if (isLeader)
-                Debug.Log("SHUT THE FUCK UP");
+            if (toPause)
+            {
+                if (!isPaused) GamePlayerManager.instance.PauseGame();
+                else GamePlayerManager.instance.ResumeGame();
+            }
+
+            if (isPaused) UnlockCursor();
+            else LockCursor();
         }
+    }
+
+    public void QuitGame()
+    {
+        if (hasAuthority)
+        {
+            if (isLeader) Game.StopHost();
+            else Game.StopClient();
+
+            SteamMatchmaking.LeaveLobby((CSteamID)RoomPlayerManager.instance.lobbyID);
+            UnlockCursor();
+        }
+    }
+
+    private void LockCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

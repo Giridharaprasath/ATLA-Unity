@@ -29,6 +29,8 @@ public class RoomPlayerManager : NetworkBehaviour
     private TMP_Text[] playerNameTexts;
     [SerializeField]
     private GameObject[] playerKickButtons;
+    [SerializeField]
+    private GameObject inviteButton;
 
     [Header("Game Info")]
     public ulong lobbyID;
@@ -97,6 +99,7 @@ public class RoomPlayerManager : NetworkBehaviour
         myRoomPlayer.isPaused = true;
         myRoomPlayer.toPause = false;
         InputManager.DisablePlayer();
+        CheckPlayerCount();
     }
 
     public void ResumeGame()
@@ -147,6 +150,12 @@ public class RoomPlayerManager : NetworkBehaviour
                 player.connectionToClient.Disconnect();
             }
         }
+    }
+
+    private void CheckPlayerCount()
+    {
+        if (Game.numPlayers == 4) inviteButton.SetActive(false);
+        else inviteButton.SetActive(true);
     }
 
     public void Invite()

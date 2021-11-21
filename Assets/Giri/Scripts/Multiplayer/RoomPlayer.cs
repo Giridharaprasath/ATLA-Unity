@@ -108,7 +108,7 @@ public class RoomPlayer : NetworkBehaviour
 
     private void Update()
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer && Game.CheckIsLobbyActiveScene())
         {
             if (toPause)
             {
@@ -183,11 +183,15 @@ public class RoomPlayer : NetworkBehaviour
     {
         thirdPersonCamera.SetActive(false);
         playerMove.enabled = false;
-        UnlockCursor();
     }
 
+    
     public void StartGame()
     {
-        Game.StartGame();
+        Debug.Log("RUNNING START GAME");
+        if (hasAuthority) CmdStartGame();
     }
+
+    [Command]
+    private void CmdStartGame() => Game.StartGame();
 }

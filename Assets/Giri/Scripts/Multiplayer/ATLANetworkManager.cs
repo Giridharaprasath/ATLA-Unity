@@ -22,8 +22,8 @@ public class ATLANetworkManager : NetworkManager
     private SelectCharacterManager selectCharacterManager = null;
     [SerializeField]
     private RoomPlayerManager roomPlayerManager = null;
-    //[SerializeField]
-    //private GamePlayerManager gamePlayerManager = null;
+    [SerializeField]
+    private GamePlayerManager gamePlayerManager = null;
 
     [Header("PLAYER INSTANCES")]
     public List<RoomPlayer> roomPlayers = new List<RoomPlayer>();
@@ -65,7 +65,7 @@ public class ATLANetworkManager : NetworkManager
             {
                 RemoveRoomPlayer(conn);
             }
-            else
+            else if (conn.identity.gameObject.GetComponent<GamePlayer>() != null)
             {
                 RemoveGamePlayer(conn);
             }
@@ -79,10 +79,13 @@ public class ATLANetworkManager : NetworkManager
         //Debug.Log("RUNNING ON STOP SERVER");
         roomPlayers.Clear();
         gamePlayers.Clear();
+
         isAirSelected = false;
         isWaterSelected = false;
         isEarthSelected = false;
         isFireSelected = false;
+
+        isGameStarted = false;
     }
 
     public override void ServerChangeScene(string newSceneName)
@@ -94,10 +97,9 @@ public class ATLANetworkManager : NetworkManager
             {
                 //Debug.Log("MAKING ROOMPLAYER DDOL");
                 DontDestroyOnLoad(player.gameObject);
-                //player.StopPlayer();
             }
         }
-        //Debug.Log("GOING TO NEW SCENE");
+        Debug.Log("GOING TO NEW SCENE");
         base.ServerChangeScene(newSceneName);
     }
 
@@ -114,12 +116,12 @@ public class ATLANetworkManager : NetworkManager
             RoomPlayerManager rPM = Instantiate(roomPlayerManager);
             NetworkServer.Spawn(rPM.gameObject);
         }
-        //if (sceneName == gameScene)
-        //{
-        //    //Debug.Log("INSTANTIATING GAME PLAYER MANAGER");
-        //    GamePlayerManager gO = Instantiate(gamePlayerManager);
-        //    NetworkServer.Spawn(gO.gameObject);
-        //}
+        else if (sceneName == gameScene)
+        {
+            Debug.Log("INSTANTIATING GAME PLAYER MANAGER");
+            GamePlayerManager gPM = Instantiate(gamePlayerManager);
+            NetworkServer.Spawn(gPM.gameObject);
+        }
     }
 
     private int CheckCharacterAvailable()
@@ -262,7 +264,7 @@ public class ATLANetworkManager : NetworkManager
         //Debug.Log("NUMBER OF PLAYER: " + numPlayers + " " + playerCount);
         if (numPlayers == playerCount)
         {
-            foreach (var player in roomPlayers)
+            foreach (RoomPlayer player in roomPlayers)
             {
                 if (!player.isPlayerReady) return;
 

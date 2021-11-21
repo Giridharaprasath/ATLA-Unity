@@ -6076,10 +6076,15 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 5391171311407506943, guid: 57338ce48e8860b48bb7be03cd7e2b11, type: 3}
   - {fileID: 7375462852018767022, guid: 3aac7a184a1fbd04f8d8d3e1ac81036b, type: 3}
+  - {fileID: 3337508995343672940, guid: b261e129ff9eade49a22e3aec0d97aee, type: 3}
   - {fileID: 7701970007347296990, guid: 19a60a649c0332c48b65d6d853d984f4, type: 3}
   - {fileID: 8441770200027334595, guid: 41b959450ccaa9445be59e22baea14ec, type: 3}
   - {fileID: 5651710525926914803, guid: b31a64fef42c74641a9394dddcbe699b, type: 3}
   - {fileID: 8688284805061416405, guid: f00373ee4a4a24a4f9a1294e4868cdec, type: 3}
+  - {fileID: 7701970007347296990, guid: 95cddaee04ca8f04e999129eeb1bf015, type: 3}
+  - {fileID: 8441770200027334595, guid: f743ab8301ba16f439e29a3ed639f826, type: 3}
+  - {fileID: 5651710525926914803, guid: 870a9d570739682479728227f02535e7, type: 3}
+  - {fileID: 8688284805061416405, guid: 29d87c74be0155c469ca1b5181b253a9, type: 3}
   mainMenu: Assets/Giri/Scenes/GameMainMenu.unity
   multiplayerLobby: Assets/Giri/Scenes/MultiplayerLobby.unity
   gameScene: Assets/Giri/Scenes/GameScene.unity
@@ -6088,9 +6093,14 @@ MonoBehaviour:
   - {fileID: -5282739058709953767, guid: 41b959450ccaa9445be59e22baea14ec, type: 3}
   - {fileID: -3676421402277285271, guid: b31a64fef42c74641a9394dddcbe699b, type: 3}
   - {fileID: 5399702986375454652, guid: f00373ee4a4a24a4f9a1294e4868cdec, type: 3}
-  gamePlayerPrefab: []
+  gamePlayerPrefab:
+  - {fileID: 4213332787086491272, guid: 95cddaee04ca8f04e999129eeb1bf015, type: 3}
+  - {fileID: 8026665797855755740, guid: f743ab8301ba16f439e29a3ed639f826, type: 3}
+  - {fileID: 2543592514490287866, guid: 870a9d570739682479728227f02535e7, type: 3}
+  - {fileID: 2306002440855223370, guid: 29d87c74be0155c469ca1b5181b253a9, type: 3}
   selectCharacterManager: {fileID: 6248293832231865651, guid: 57338ce48e8860b48bb7be03cd7e2b11, type: 3}
   roomPlayerManager: {fileID: 8182697543350590012, guid: 3aac7a184a1fbd04f8d8d3e1ac81036b, type: 3}
+  gamePlayerManager: {fileID: -9117024338425654820, guid: b261e129ff9eade49a22e3aec0d97aee, type: 3}
   roomPlayers: []
   gamePlayers: []
   isAirSelected: 0

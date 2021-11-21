@@ -108,14 +108,14 @@ public class SteamLobbyManager : MonoBehaviour
         for (int i = 0; i < result.m_nLobbiesMatching; i++)
         {
             CSteamID lobbyID = SteamMatchmaking.GetLobbyByIndex(i);
-            //if ((lobbyID.m_SteamID, "GameName").Equals("ATLA"))
-            //{
-            //    lobbyIDs.Add(lobbyID);
-            //    c++;
-            //    SteamMatchmaking.RequestLobbyData(lobbyID);
-            //}
-            lobbyIDs.Add(lobbyID);
-            SteamMatchmaking.RequestLobbyData(lobbyID);
+            string gN = SteamMatchmaking.GetLobbyData((CSteamID)lobbyID, "GameName");
+            //Debug.Log(gN.Equals("ATLA"));
+            if (gN.Equals("ATLA"))
+            {
+                lobbyIDs.Add(lobbyID);
+                c++;
+                SteamMatchmaking.RequestLobbyData(lobbyID);
+            }
         }
         Debug.Log("FOUND " + c + " LOBBIES!!");
     }
