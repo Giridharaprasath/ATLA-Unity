@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Giri/Scene/MainMenu.unity
-    guid: d290763afb045254aa8f56db930b1cb8
+    path: Assets/Giri/Scenes/GameMainMenu.unity
+    guid: 1130259a98af8004db49d306bd4b6e92
   - enabled: 1
-    path: Assets/Giri/Scene/SingleplayerCharacter.unity
-    guid: 25d226b2398e09249a1786418d8e64ef
+    path: Assets/Giri/Scenes/MultiplayerLobby.unity
+    guid: 7a0206d2e6697b34fb3ae2222b77283e
   - enabled: 1
-    path: Assets/Giri/Scene/MultiplayerCharacter.unity
-    guid: fe4117ea18f6d2c49b70ecee653a59aa
+    path: Assets/Giri/Scenes/GameScene.unity
+    guid: 024d6f6ced71ebd4a9edbd79903365e8
+  - enabled: 1
+    path: Assets/Giri - CharacterSelection/MainMenu.unity
+    guid: a576f45d41e580b44a045076c6d0be78
+  - enabled: 1
+    path: Assets/Giri - CharacterSelection/CharacterSelection.unity
+    guid: 33cb88ad9a2b7384b955d3534c7c5020
+  - enabled: 1
+    path: Assets/Giri - CharacterSelection/newS.unity
+    guid: 5b21a2fb45f9439498de2f55cfbae92e
   m_configObjects: {}
