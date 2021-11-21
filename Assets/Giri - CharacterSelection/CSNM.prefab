@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4258659098163487284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4258659098163487280}
+  - component: {fileID: 4258659098163487281}
+  - component: {fileID: 4258659098163487282}
+  - component: {fileID: 4258659098163487283}
+  m_Layer: 0
+  m_Name: CSNM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4258659098163487280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258659098163487284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4258659098163487281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258659098163487284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2acd4fcc4408b446ae81e382c8c9e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  PersistNetworkManagerToOfflineScene: 0
+  runInBackground: 1
+  autoStartServerBuild: 1
+  serverTickRate: 30
+  offlineScene: Assets/Giri - CharacterSelection/MainMenu.unity
+  onlineScene: Assets/Giri - CharacterSelection/CharacterSelection.unity
+  transport: {fileID: 4258659098163487282}
+  networkAddress: localhost
+  maxConnections: 4
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 352441401726439901, guid: 7c5d8cb895115cf409c9381de26a53f4, type: 3}
+  autoCreatePlayer: 1
+  playerSpawnMethod: 1
+  spawnPrefabs:
+  - {fileID: 6054513672539049910, guid: 70929f755dfe4bf4194a0cf268aa58a2, type: 3}
+  - {fileID: 7701970007347296990, guid: cc2001d8a72cdfd48b0e06066ed496d5, type: 3}
+  - {fileID: 8441770200027334595, guid: b3173a9cd5017cf449d0c93497cf63d3, type: 3}
+  - {fileID: 5651710525926914803, guid: ae832c87b64b66c4eb35ec2495eacecf, type: 3}
+  - {fileID: 8688284805061416405, guid: 09dd2a2d3983875489fab6c60581219c, type: 3}
+  - {fileID: 6039872714732666689, guid: 8b482a28220eb124cb481203f61ad6d6, type: 3}
+  - {fileID: 7701970007347296990, guid: abbb2548afdf71941a8583fccf034291, type: 3}
+  - {fileID: 8441770200027334595, guid: d7de04dd1a5c8774996eb12132f6f557, type: 3}
+  - {fileID: 5651710525926914803, guid: 4ea1f75d68bebfa48810a876e8119250, type: 3}
+  - {fileID: 8688284805061416405, guid: e8d744173c198e4419c62977a3a7e379, type: 3}
+  isGameStarted: 0
+  charS: Assets/Giri - CharacterSelection/CharacterSelection.unity
+  newS: Assets/Giri - CharacterSelection/newS.unity
+  lobbyCharSelect: {fileID: 3425914554826180057, guid: 70929f755dfe4bf4194a0cf268aa58a2, type: 3}
+  gameSceneManager: {fileID: 2186020207049665850, guid: 8b482a28220eb124cb481203f61ad6d6, type: 3}
+  lobbyPlayerPrefab:
+  - {fileID: 6985407356953103061, guid: cc2001d8a72cdfd48b0e06066ed496d5, type: 3}
+  - {fileID: -8420362743074535681, guid: b3173a9cd5017cf449d0c93497cf63d3, type: 3}
+  - {fileID: 4444771816483781906, guid: ae832c87b64b66c4eb35ec2495eacecf, type: 3}
+  - {fileID: 408027171414361827, guid: 09dd2a2d3983875489fab6c60581219c, type: 3}
+  gameScenePlayerPrefab:
+  - {fileID: 8014410633114639418, guid: abbb2548afdf71941a8583fccf034291, type: 3}
+  - {fileID: 4628556751084230417, guid: d7de04dd1a5c8774996eb12132f6f557, type: 3}
+  - {fileID: 6783722552435946118, guid: 4ea1f75d68bebfa48810a876e8119250, type: 3}
+  - {fileID: 7410284844365064263, guid: e8d744173c198e4419c62977a3a7e379, type: 3}
+  playerCount: 0
+  isAirSelected: 0
+  isWaterSelected: 0
+  isEarthSelected: 0
+  isFireSelected: 0
+  lobbyPlayers: []
+  gameScenePlayers: []
+--- !u!114 &4258659098163487282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258659098163487284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  DualMode: 1
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  NonAlloc: 1
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
+--- !u!114 &4258659098163487283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258659098163487284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
