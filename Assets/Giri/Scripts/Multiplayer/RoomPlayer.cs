@@ -78,7 +78,12 @@ public class RoomPlayer : NetworkBehaviour
 
         SelectCharacterManager.instance.SetState(false);
         RoomPlayerManager.instance.FindMyRoomPlayer();
-        if (isLeader) RoomPlayerManager.instance.SetPlayerKickButton(playerCharIndex);
+        if (isLeader)
+        {
+            RoomPlayerManager.instance.SetPlayerKickButton(playerCharIndex);
+            Debug.Log(playerName + " SETTING CHECK POINT : 1");
+            Game.SetCheckPointCount(1);
+        }
 
         InputManager.Controls.UI.Paused.performed += ctx => toPause = true;
         InputManager.Controls.UI.Paused.canceled += ctx => toPause = false;

@@ -55,4 +55,12 @@ public class InputManager : MonoBehaviour
     public static void DisableEverything() => Controls.Disable();
 
     public static void EnableEverything() => Controls.Enable();
+
+    public static void DisableJumping() => Controls.asset.FindAction("Player/Jump").Disable();
+
+    public static void EnableJumping() => Controls.asset.FindAction("Player/Jump").Enable();
+
+    public static void EnableHighJumping() => Controls.asset.FindAction("AirBending/HighJump").Enable();
+
+    public static void DisableHighJumping() => Controls.asset.FindAction("AirBending/HighJump").Disable();
 }

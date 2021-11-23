@@ -13,8 +13,7 @@ public class AangPlayerMovement : MonoBehaviour
     private float speedChangeRate = 10f;
 
     [Space(10)]
-    [SerializeField]
-    private float jumpHeight = 1.2f;
+    public float jumpHeight = 1.2f;
     [SerializeField]
     private float gravity = -15f;
 
@@ -52,8 +51,7 @@ public class AangPlayerMovement : MonoBehaviour
     private Vector2 look;
     [SerializeField]
     private bool run;
-    [SerializeField]
-    private bool jump;
+    public bool jump;
 
     // Third Person Camera
     private float _tpcTargetYaw;

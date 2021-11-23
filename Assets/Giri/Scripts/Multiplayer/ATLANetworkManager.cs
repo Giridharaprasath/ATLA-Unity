@@ -39,8 +39,10 @@ public class ATLANetworkManager : NetworkManager
     [SerializeField]
     private bool isFireSelected;
 
+    [Header("LOBBY INFO")]
     public int playerCount;
     public bool isGameStarted;
+    public int checkPointIndex;
 
     public override void OnServerConnect(NetworkConnection conn)
     {
@@ -118,7 +120,7 @@ public class ATLANetworkManager : NetworkManager
         }
         else if (sceneName == gameScene)
         {
-            Debug.Log("INSTANTIATING GAME PLAYER MANAGER");
+            //Debug.Log("INSTANTIATING GAME PLAYER MANAGER");
             GamePlayerManager gPM = Instantiate(gamePlayerManager);
             NetworkServer.Spawn(gPM.gameObject);
         }
@@ -293,5 +295,11 @@ public class ATLANetworkManager : NetworkManager
         SetSelectCharacterManager(i, false);
         SetNMCharacterSelected(i, false);
         playerCount--;
+    }
+
+    public void SetCheckPointCount(int i)
+    {
+        Debug.Log("RUNNING SET CHECK POINT COUNT VALUE: " + i);
+        checkPointIndex = i;
     }
 }
