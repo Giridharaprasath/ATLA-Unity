@@ -6,7 +6,7 @@ public class GamePlayer : NetworkBehaviour
 {
     [Header("GAME PLAYER INFO")]
     [SyncVar]
-    private bool isLeader = false;
+    public bool isLeader = false;
     [SyncVar]
     public string playerName;
     [SyncVar]

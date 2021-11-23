@@ -187,6 +187,112 @@ public class @AllControls : IInputActionCollection, IDisposable
             ]
         },
         {
+            ""name"": ""AirBending"",
+            ""id"": ""e643b4d4-1d6b-4683-a897-cdcc408e186a"",
+            ""actions"": [
+                {
+                    ""name"": ""HighJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bda60c7-4cde-4a65-a477-3e42d78557a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1,pressPoint=0.5)""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0ba4dd92-2ac1-46fd-b496-8a804d3638cc"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""HighJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a184ba67-44dc-429e-add0-2fc052f407cb"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""HighJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""WaterBending"",
+            ""id"": ""1aa619c8-5c4b-4485-b334-3e76ce731642"",
+            ""actions"": [
+                {
+                    ""name"": ""IceCube"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3dedc16-d72b-4e50-b044-8319c623438e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""FreezeWater"",
+                    ""type"": ""Button"",
+                    ""id"": ""018e240b-1803-436f-b55f-c38fd8b6b7f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""459091fa-fc8a-40a0-aebd-b338026fd722"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IceCube"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""eb554df2-34d0-4492-ad70-893a88d660e2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""IceCube"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""d196fdc4-501d-4db2-9036-ece867dfc1f3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""IceCube"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a827a49-8349-4353-a17c-fc713bf3ae20"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FreezeWater"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""EarthBending"",
             ""id"": ""045eb542-b7e3-4df7-90a5-a9d023d3521a"",
             ""actions"": [
@@ -613,6 +719,13 @@ public class @AllControls : IInputActionCollection, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // AirBending
+        m_AirBending = asset.FindActionMap("AirBending", throwIfNotFound: true);
+        m_AirBending_HighJump = m_AirBending.FindAction("HighJump", throwIfNotFound: true);
+        // WaterBending
+        m_WaterBending = asset.FindActionMap("WaterBending", throwIfNotFound: true);
+        m_WaterBending_IceCube = m_WaterBending.FindAction("IceCube", throwIfNotFound: true);
+        m_WaterBending_FreezeWater = m_WaterBending.FindAction("FreezeWater", throwIfNotFound: true);
         // EarthBending
         m_EarthBending = asset.FindActionMap("EarthBending", throwIfNotFound: true);
         m_EarthBending_SeismicSense = m_EarthBending.FindAction("SeismicSense", throwIfNotFound: true);
@@ -732,6 +845,80 @@ public class @AllControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // AirBending
+    private readonly InputActionMap m_AirBending;
+    private IAirBendingActions m_AirBendingActionsCallbackInterface;
+    private readonly InputAction m_AirBending_HighJump;
+    public struct AirBendingActions
+    {
+        private @AllControls m_Wrapper;
+        public AirBendingActions(@AllControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HighJump => m_Wrapper.m_AirBending_HighJump;
+        public InputActionMap Get() { return m_Wrapper.m_AirBending; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AirBendingActions set) { return set.Get(); }
+        public void SetCallbacks(IAirBendingActions instance)
+        {
+            if (m_Wrapper.m_AirBendingActionsCallbackInterface != null)
+            {
+                @HighJump.started -= m_Wrapper.m_AirBendingActionsCallbackInterface.OnHighJump;
+                @HighJump.performed -= m_Wrapper.m_AirBendingActionsCallbackInterface.OnHighJump;
+                @HighJump.canceled -= m_Wrapper.m_AirBendingActionsCallbackInterface.OnHighJump;
+            }
+            m_Wrapper.m_AirBendingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @HighJump.started += instance.OnHighJump;
+                @HighJump.performed += instance.OnHighJump;
+                @HighJump.canceled += instance.OnHighJump;
+            }
+        }
+    }
+    public AirBendingActions @AirBending => new AirBendingActions(this);
+
+    // WaterBending
+    private readonly InputActionMap m_WaterBending;
+    private IWaterBendingActions m_WaterBendingActionsCallbackInterface;
+    private readonly InputAction m_WaterBending_IceCube;
+    private readonly InputAction m_WaterBending_FreezeWater;
+    public struct WaterBendingActions
+    {
+        private @AllControls m_Wrapper;
+        public WaterBendingActions(@AllControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @IceCube => m_Wrapper.m_WaterBending_IceCube;
+        public InputAction @FreezeWater => m_Wrapper.m_WaterBending_FreezeWater;
+        public InputActionMap Get() { return m_Wrapper.m_WaterBending; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WaterBendingActions set) { return set.Get(); }
+        public void SetCallbacks(IWaterBendingActions instance)
+        {
+            if (m_Wrapper.m_WaterBendingActionsCallbackInterface != null)
+            {
+                @IceCube.started -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnIceCube;
+                @IceCube.performed -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnIceCube;
+                @IceCube.canceled -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnIceCube;
+                @FreezeWater.started -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnFreezeWater;
+                @FreezeWater.performed -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnFreezeWater;
+                @FreezeWater.canceled -= m_Wrapper.m_WaterBendingActionsCallbackInterface.OnFreezeWater;
+            }
+            m_Wrapper.m_WaterBendingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @IceCube.started += instance.OnIceCube;
+                @IceCube.performed += instance.OnIceCube;
+                @IceCube.canceled += instance.OnIceCube;
+                @FreezeWater.started += instance.OnFreezeWater;
+                @FreezeWater.performed += instance.OnFreezeWater;
+                @FreezeWater.canceled += instance.OnFreezeWater;
+            }
+        }
+    }
+    public WaterBendingActions @WaterBending => new WaterBendingActions(this);
 
     // EarthBending
     private readonly InputActionMap m_EarthBending;
@@ -928,6 +1115,15 @@ public class @AllControls : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IAirBendingActions
+    {
+        void OnHighJump(InputAction.CallbackContext context);
+    }
+    public interface IWaterBendingActions
+    {
+        void OnIceCube(InputAction.CallbackContext context);
+        void OnFreezeWater(InputAction.CallbackContext context);
     }
     public interface IEarthBendingActions
     {

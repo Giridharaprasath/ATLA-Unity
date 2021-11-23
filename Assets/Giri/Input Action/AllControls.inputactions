@@ -174,6 +174,112 @@
             ]
         },
         {
+            "name": "AirBending",
+            "id": "e643b4d4-1d6b-4683-a897-cdcc408e186a",
+            "actions": [
+                {
+                    "name": "HighJump",
+                    "type": "Button",
+                    "id": "9bda60c7-4cde-4a65-a477-3e42d78557a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1,pressPoint=0.5)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0ba4dd92-2ac1-46fd-b496-8a804d3638cc",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "HighJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a184ba67-44dc-429e-add0-2fc052f407cb",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "HighJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "WaterBending",
+            "id": "1aa619c8-5c4b-4485-b334-3e76ce731642",
+            "actions": [
+                {
+                    "name": "IceCube",
+                    "type": "Button",
+                    "id": "d3dedc16-d72b-4e50-b044-8319c623438e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "FreezeWater",
+                    "type": "Button",
+                    "id": "018e240b-1803-436f-b55f-c38fd8b6b7f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Button With One Modifier",
+                    "id": "459091fa-fc8a-40a0-aebd-b338026fd722",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "IceCube",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "eb554df2-34d0-4492-ad70-893a88d660e2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "IceCube",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "d196fdc4-501d-4db2-9036-ece867dfc1f3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "IceCube",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1a827a49-8349-4353-a17c-fc713bf3ae20",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "FreezeWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "EarthBending",
             "id": "045eb542-b7e3-4df7-90a5-a9d023d3521a",
             "actions": [
