@@ -99,6 +99,7 @@ public class ATLANetworkManager : NetworkManager
             {
                 //Debug.Log("MAKING ROOMPLAYER DDOL");
                 DontDestroyOnLoad(player.gameObject);
+                player.StopPlayer();
             }
         }
         Debug.Log("GOING TO NEW SCENE");
@@ -229,7 +230,7 @@ public class ATLANetworkManager : NetworkManager
         //Debug.Log("RUNNING ADD GAME PLAYER");
         GamePlayer glPrefab = gamePlayerPrefab[i];
         //Debug.Log(glPrefab);
-        GamePlayer gl = Instantiate(glPrefab);
+        GamePlayer gl = Instantiate(glPrefab, startPositions[i].position, startPositions[i].rotation);
         //Debug.Log(gl);
 
         gl.ServerSetCharIndex(i);
@@ -295,11 +296,5 @@ public class ATLANetworkManager : NetworkManager
         SetSelectCharacterManager(i, false);
         SetNMCharacterSelected(i, false);
         playerCount--;
-    }
-
-    public void SetCheckPointCount(int i)
-    {
-        Debug.Log("RUNNING SET CHECK POINT COUNT VALUE: " + i);
-        checkPointIndex = i;
     }
 }

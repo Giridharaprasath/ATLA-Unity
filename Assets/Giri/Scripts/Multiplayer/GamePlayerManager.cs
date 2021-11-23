@@ -7,6 +7,12 @@ public class GamePlayerManager : NetworkBehaviour
 {
     public static GamePlayerManager instance;
 
+    [Header("ANIMATOR")]
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private GameObject animCam;
+
     [Header("PAUSE MENU UI")]
     [SerializeField]
     private GameObject pauseMenuUI;
@@ -21,11 +27,11 @@ public class GamePlayerManager : NetworkBehaviour
     [SerializeField]
     private GameObject inviteButton;
 
-    [Header("MY Game PLAYER")]
+    [Header("MY GAME PLAYER")]
     [SerializeField]
     private GamePlayer myGamePlayer;
 
-    [Header("Game Info")]
+    [Header("GAME INFO")]
     public ulong lobbyID;
     [SerializeField]
     private string lobbyName;
@@ -50,8 +56,7 @@ public class GamePlayerManager : NetworkBehaviour
         //Debug.Log("ROOM PLAYER MANAGER CLIENT STARTED");
         SetState(false);
         UpdateLobbyName();
-        CanContinueGame();
-        //animator.enabled = false;
+        animator.enabled = true;
     }
 
     public override void OnStopClient()
@@ -106,9 +111,11 @@ public class GamePlayerManager : NetworkBehaviour
         SteamFriends.ActivateGameOverlayInviteDialog((CSteamID)lobbyID);
     }
 
-    private void CanContinueGame()
+    public void CanContinueGame()
     {
         //Debug.Log("RUNNING CAN CONTINUE GAME");
+        animator.enabled = false;
+        animCam.SetActive(false);
         CmdChangeToGamePlayer();
         InputManager.EnableEverything();
     }

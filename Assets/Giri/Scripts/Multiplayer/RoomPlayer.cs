@@ -81,8 +81,6 @@ public class RoomPlayer : NetworkBehaviour
         if (isLeader)
         {
             RoomPlayerManager.instance.SetPlayerKickButton(playerCharIndex);
-            Debug.Log(playerName + " SETTING CHECK POINT : 1");
-            Game.SetCheckPointCount(1);
         }
 
         InputManager.Controls.UI.Paused.performed += ctx => toPause = true;
@@ -190,7 +188,6 @@ public class RoomPlayer : NetworkBehaviour
         playerMove.enabled = false;
     }
 
-    
     public void StartGame()
     {
         Debug.Log("RUNNING START GAME");
