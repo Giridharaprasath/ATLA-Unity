@@ -34,8 +34,12 @@ public class GamePlayer : NetworkBehaviour
     [SerializeField]
     private FireBending fireBending;
 
+    [Header("CHEST")]
+    [SerializeField]
+    private CollectablesManager chest;
+
     [HideInInspector]
-    public bool toPause, isPaused;
+    public bool toPause, isPaused, toOpenChest, canOpenChest;
 
     private ATLANetworkManager game;
     private ATLANetworkManager Game
@@ -77,6 +81,8 @@ public class GamePlayer : NetworkBehaviour
 
         InputManager.Controls.UI.Paused.performed += ctx => toPause = true;
         InputManager.Controls.UI.Paused.canceled += ctx => toPause = false;
+
+        InputManager.Controls.EarthBending.OpenWall.performed += ctx => toOpenChest = true;
     }
 
     [Server]
@@ -130,6 +136,8 @@ public class GamePlayer : NetworkBehaviour
 
             if (isPaused) UnlockCursor();
             else LockCursor();
+
+            if (canOpenChest && toOpenChest) OpenChest();
         }
     }
 
@@ -155,5 +163,25 @@ public class GamePlayer : NetworkBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ChestOpenTrigger")
+        {
+            chest = other.GetComponent<CollectablesManager>();
+            canOpenChest = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        canOpenChest = false;
+    }
+
+    private void OpenChest()
+    {
+        toOpenChest = false;
+        chest.CollectChest();
     }
 }
