@@ -28,6 +28,8 @@ public class GamePlayer : NetworkBehaviour
     [SerializeField]
     private CapsuleCollider capCol;
     [SerializeField]
+    private AirBending airBending;
+    [SerializeField]
     private EarthBending earthBending;
     [SerializeField]
     private FireBending fireBending;
@@ -99,6 +101,11 @@ public class GamePlayer : NetworkBehaviour
 
     private void SetAbilities()
     {
+        if (thisCharName == "Air")
+        {
+            airBending = GetComponent<AirBending>();
+            airBending.enabled = true;
+        }
         if (thisCharName == "Earth")
         {
             earthBending = GetComponent<EarthBending>();

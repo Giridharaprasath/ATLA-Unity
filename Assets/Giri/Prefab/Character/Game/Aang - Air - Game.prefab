@@ -3758,6 +3758,7 @@ GameObject:
   - component: {fileID: 8988282008618343264}
   - component: {fileID: 5447015331465720194}
   - component: {fileID: 3667436243839383996}
+  - component: {fileID: 5370395675858188763}
   - component: {fileID: 4213332787086491272}
   m_Layer: 6
   m_Name: Aang - Air - Game
@@ -4095,6 +4096,21 @@ MonoBehaviour:
   wallParent: {fileID: 0}
   wallTrigger: {fileID: 0}
   isOpeningWall: 0
+--- !u!114 &5370395675858188763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701970007347296990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678fde84c484ba94488d0bfd1307359a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7701970007347296988}
+  jumpHeight: 0
+  canHighJump: 0
 --- !u!114 &4213332787086491272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4109,6 +4125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  isLeader: 0
   playerName: 
   playerConnID: 0
   playerCharName: 
@@ -4118,6 +4135,7 @@ MonoBehaviour:
   playerMove: {fileID: 7701970007347296988}
   controller: {fileID: 7701970007347296989}
   capCol: {fileID: 8988282008618343264}
+  airBending: {fileID: 0}
   earthBending: {fileID: 3667436243839383996}
   fireBending: {fileID: 5447015331465720194}
   toPause: 0
