@@ -47,7 +47,7 @@ public class EarthBending : NetworkBehaviour
 
         InputManager.Controls.EarthBending.SeismicSense.performed += ctx => PerformedSeismicSense();
 
-        InputManager.Controls.EarthBending.OpenWall.performed += ctx => CmdSetIsOpeningWall(true);
+        //InputManager.Controls.EarthBending.OpenWall.performed += ctx => CmdSetIsOpeningWall(true);
     }
 
     private void PerformedSeismicSense()

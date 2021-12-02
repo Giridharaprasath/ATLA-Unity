@@ -2831,6 +2831,7 @@ GameObject:
   - component: {fileID: 5651710525141346678}
   - component: {fileID: 5651710525141346665}
   - component: {fileID: 5651710525141346664}
+  - component: {fileID: 4322815723076158690}
   m_Layer: 6
   m_Name: Vision Camera
   m_TagString: Untagged
@@ -2961,6 +2962,23 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4322815723076158690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651710525141346666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 270c8127b5611c040b12d257682ecef1, type: 2}
 --- !u!1 &5651710525199916279
 GameObject:
   m_ObjectHideFlags: 0
@@ -4672,6 +4690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  isLeader: 0
   playerName: 
   playerConnID: 0
   playerCharName: 
@@ -4681,7 +4700,11 @@ MonoBehaviour:
   playerMove: {fileID: 5651710525926914814}
   controller: {fileID: 5651710525926914815}
   capCol: {fileID: 8973428595279136191}
+  airBending: {fileID: 0}
   earthBending: {fileID: 4541021532362099674}
   fireBending: {fileID: 4476950906506038505}
+  chest: {fileID: 0}
   toPause: 0
   isPaused: 0
+  toOpenChest: 0
+  canOpenChest: 0

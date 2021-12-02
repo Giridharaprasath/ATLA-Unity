@@ -169,7 +169,7 @@ public class GamePlayer : NetworkBehaviour
     {
         if (other.gameObject.tag == "ChestOpenTrigger")
         {
-            chest = other.GetComponent<CollectablesManager>();
+            chest = other.GetComponentInParent<CollectablesManager>();
             canOpenChest = true;
         }
     }
