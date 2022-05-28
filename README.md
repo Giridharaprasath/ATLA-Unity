@@ -22,4 +22,4 @@ It'a Steam Multiplayer Game
 
 ![image](https://user-images.githubusercontent.com/83279100/170812767-9edd5669-3bc2-43e5-ae1d-2f129b62dbf7.png)
 
-- Gamplay Video: Gameplay Video Link - https://drive.google.com/file/d/1NwsvzjbcuFMyuFPtrCG75n60W1VzIfZY/view?usp=sharing
+- Gamplay Video: https://drive.google.com/file/d/1NwsvzjbcuFMyuFPtrCG75n60W1VzIfZY/view?usp=sharing
