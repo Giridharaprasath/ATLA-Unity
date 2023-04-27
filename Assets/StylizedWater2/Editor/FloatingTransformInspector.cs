@@ -10,7 +10,7 @@ using UnityEditor;
 #if UNITY_2021_2
 using PrefabStageUtility = UnityEditor.SceneManagement.PrefabStageUtility;
 #else
-using PrefabStageUtility = UnityEditor.Experimental.SceneManagement.PrefabStageUtility;
+using PrefabStageUtility = UnityEditor.SceneManagement.PrefabStageUtility;
 #endif
 
 namespace StylizedWater2
@@ -205,7 +205,7 @@ namespace StylizedWater2
         {
             if (!script) return;
             
-            FloatingTransform.Disable = PrefabStageUtility.GetCurrentPrefabStage() != null || editSamples;
+            FloatingTransform.Disable = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null || editSamples;
             
             if (editSamples)
             {
